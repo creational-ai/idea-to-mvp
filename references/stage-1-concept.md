@@ -16,7 +16,7 @@ Claude Desktop (NO CODE)
 4. Surface assumptions and unknowns
 
 ## Output
-`docs/concept.md` using `assets/templates/north-star.md`
+`docs/[project]-north-star.md` using `assets/templates/north-star.md`
 
 ## Verification Checklist
 - [ ] Problem clearly stated

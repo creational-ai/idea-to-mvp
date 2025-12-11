@@ -68,7 +68,7 @@ Respond: "We're in the [Concept/Design/Research/PoC Planning] stage — let's ke
 3. Identify key components and their relationships
 4. Surface assumptions and unknowns
 
-**Output**: `docs/concept.md` using template
+**Output**: `docs/[project]-north-star.md` using template
 
 **Verification**:
 - [ ] Problem clearly stated
