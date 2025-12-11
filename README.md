@@ -1,8 +1,6 @@
 # idea-to-mvp
 
 ![Claude Skill](https://img.shields.io/badge/Claude-Skill-blue)
-![Claude Code](https://img.shields.io/badge/Claude-Code-green)
-![Claude AI](https://img.shields.io/badge/Claude-AI-purple)
 
 A structured workflow for taking ideas from concept to working product through 6 stages.
 

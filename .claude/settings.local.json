@@ -9,7 +9,10 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(git push:*)",
-      "Bash(git remote set-url:*)"
+      "Bash(git remote set-url:*)",
+      "WebSearch",
+      "WebFetch(domain:docs.github.com)",
+      "WebFetch(domain:choosealicense.com)"
     ]
   }
 }
