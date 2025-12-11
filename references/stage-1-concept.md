@@ -1,0 +1,41 @@
+# Stage 1: Concept
+
+## Goal
+Refine the idea into a clear, feasible concept.
+
+## Environment
+Claude Desktop (NO CODE)
+
+## Input
+- Idea (verbal, notes, rough sketch)
+
+## Process
+1. Understand the core problem being solved
+2. Define how it would work (high-level)
+3. Identify key components and their relationships
+4. Surface assumptions and unknowns
+
+## Output
+`docs/concept.md` using `assets/templates/north-star.md`
+
+## Verification Checklist
+- [ ] Problem clearly stated
+- [ ] Solution approach makes sense
+- [ ] Technical feasibility seems reasonable
+- [ ] No obvious blockers identified
+
+## Key Questions to Answer
+- What problem are we solving?
+- For whom?
+- Why now?
+- What does success look like?
+- What are the biggest unknowns?
+
+## Common Pitfalls
+- Jumping to solutions before understanding the problem
+- Being too vague about the target user
+- Ignoring technical constraints
+- Scope creep at concept stage
+
+## Next Stage
+→ Stage 2: Design
