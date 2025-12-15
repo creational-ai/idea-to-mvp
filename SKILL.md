@@ -4,15 +4,15 @@ Structured workflow for taking ideas from concept to working product.
 
 ## Stage Overview
 
-| Stage | Environment | Code Allowed? | Output |
-|-------|-------------|---------------|--------|
-| 1. Concept | Claude Desktop | ❌ NO | Concept doc |
-| 2. Design | Claude Desktop | ❌ NO | Design doc, architecture |
-| 3. Research | Claude Desktop | ❌ NO | Market analysis, validation |
-| 4. PoC Planning | Claude Code | ❌ NO | PoC diagram, dependency map |
-| 4b. PoC Implementation Planning | Claude Code | ✅ YES | Per-PoC implementation plan (ONE at a time) |
-| 5. PoC Execution | Claude Code | ✅ YES | Working code + tests |
-| 6. MVP | Claude Code | ✅ YES | Working product |
+| Stage | Code Allowed? | Output |
+|-------|---------------|--------|
+| 1. Concept | ❌ NO | North Star doc |
+| 2. Design | ❌ NO | Design doc, architecture |
+| 3. Research | ❌ NO | Market analysis, validation |
+| 4. PoC Planning | ❌ NO | PoC plan, dependency map |
+| 4b. PoC Implementation Planning | ✅ YES | Per-PoC implementation plan (ONE at a time) |
+| 5. PoC Execution | ✅ YES | Working code + tests |
+| 6. MVP | ✅ YES | Working product |
 
 ---
 
@@ -56,11 +56,13 @@ Respond: "We're in the [Concept/Design/Research/PoC Planning] stage — let's ke
 
 ---
 
-## Stage 1: Concept (Claude Desktop)
+## Stage 1: Concept
 
 **Goal**: Refine the idea into a clear, feasible concept
 
 **Input**: Idea (verbal, notes, rough sketch)
+
+**Template**: `assets/templates/north-star.md`
 
 **Process**:
 1. Understand the core problem being solved
@@ -68,9 +70,10 @@ Respond: "We're in the [Concept/Design/Research/PoC Planning] stage — let's ke
 3. Identify key components and their relationships
 4. Surface assumptions and unknowns
 
-**Output**: `docs/[project]-north-star.md` using template
+**Output**: `docs/north-star.md`
 
-**Verification**:
+### Stage 1 Complete Checklist
+- [ ] `docs/north-star.md` created using template
 - [ ] Problem clearly stated
 - [ ] Solution approach makes sense
 - [ ] Technical feasibility seems reasonable
@@ -80,11 +83,13 @@ Respond: "We're in the [Concept/Design/Research/PoC Planning] stage — let's ke
 
 ---
 
-## Stage 2: Design (Claude Desktop)
+## Stage 2: Design
 
 **Goal**: Create technical architecture and integration plan
 
-**Input**: Concept doc
+**Input**: Concept doc (`docs/north-star.md`)
+
+**Template**: `assets/templates/design.md`
 
 **Process**:
 1. Define system architecture
@@ -93,24 +98,26 @@ Respond: "We're in the [Concept/Design/Research/PoC Planning] stage — let's ke
 4. Design component interactions
 5. Identify integration points
 
-**Output**: `docs/design.md` using template
+**Output**: `docs/design.md`
 
-**Verification**:
+### Stage 2 Complete Checklist
+- [ ] `docs/design.md` created using template
 - [ ] Architecture diagram complete
 - [ ] Tech stack justified
 - [ ] Data flows documented
 - [ ] Integration points identified
 - [ ] No code written (only diagrams and descriptions)
+- [ ] Run `/verify-doc docs/design.md`
 
 **Next**: → Stage 3: Research
 
 ---
 
-## Stage 3: Research (Claude Desktop)
+## Stage 3: Research
 
 **Goal**: Validate market fit and competitive landscape
 
-**Input**: Design doc
+**Input**: Design doc (`docs/design.md`)
 
 **Process**:
 1. Research competitors
@@ -121,45 +128,63 @@ Respond: "We're in the [Concept/Design/Research/PoC Planning] stage — let's ke
 
 **Output**: Updates to concept + design docs, market analysis
 
-**Verification**:
+### Fast-Track Option
+
+If research already exists (from prior sessions, reference docs, or external sources):
+1. Review existing research docs for coverage
+2. Verify all checklist items are addressed
+3. Note source: "Research validated via [reference docs]"
+4. Proceed to Stage 4
+
+### Stage 3 Complete Checklist
 - [ ] Competitors identified with strengths/weaknesses
 - [ ] Market gap clearly articulated
 - [ ] Differentiation strategy defined
-- [ ] Pricing validated against market
+- [ ] Pricing validated against market (if applicable)
 - [ ] Go/no-go decision supported by evidence
 
-**Next**: → Stage 4: PoC Planning (move to Claude Code)
+**Next**: → Stage 4: PoC Planning
 
 ---
 
-## Stage 4: PoC Planning (Claude Code)
+## Stage 4: PoC Planning
 
 **Goal**: Define what needs to be proven and in what order — with PRODUCTION-GRADE thin slices
 
 **Input**: Validated design docs (copied to `docs/` folder)
 
+**Template**: `assets/templates/poc-plan.md`
+
 **Process**:
-1. Refine design with Claude Code's perspective
+1. Refine design with implementation perspective
 2. Identify atomic things to prove (PoCs)
 3. Map dependencies between PoCs
 4. Create PoC diagram
 5. Define success criteria for each PoC
+6. Create initial PROJECT_STATE.md
 
-**Output**: `docs/poc-plan.md` using template
+**Output**:
+- `docs/poc-plan.md`
+- `PROJECT_STATE.md` (initial creation)
 
-**Verification**:
+### Stage 4 Complete Checklist
+- [ ] `docs/poc-plan.md` created using template
 - [ ] Each PoC proves one specific thing
 - [ ] Dependencies mapped (which PoCs unlock others)
 - [ ] Success criteria measurable
 - [ ] Order of execution clear
+- [ ] `PROJECT_STATE.md` created with initial state
+- [ ] Run `/verify-doc docs/poc-plan.md`
 
 **Next**: → Stage 4b: PoC Implementation Planning (per PoC)
 
 ---
 
-## Stage 4b: PoC Implementation Planning (Claude Code)
+## Stage 4b: PoC Implementation Planning
 
 **Goal**: Break the NEXT PoC into bite-sized, production-grade implementation steps
+
+**Template**: `assets/templates/poc-implementation.md`
 
 ⚠️ **ONE PoC AT A TIME**
 
@@ -212,7 +237,7 @@ A PoC IS:
 
 **Output**: `docs/pocN-implementation.md` using template
 
-**Verification**:
+### Stage 4b Complete Checklist
 - [ ] Prerequisites explicitly listed with setup instructions
 - [ ] Each step is small enough to verify independently
 - [ ] Each step has clear verification criteria (with code)
@@ -225,7 +250,7 @@ A PoC IS:
 
 ---
 
-## Stage 5: PoC Execution (Claude Code)
+## Stage 5: PoC Execution
 
 **Goal**: Implement the current PoC one step at a time
 
@@ -313,7 +338,7 @@ This stage executes the implementation plan from Stage 4b:
 
 ---
 
-## Stage 6: MVP (Claude Code)
+## Stage 6: MVP
 
 **Goal**: Combine proven PoCs into working product
 
@@ -327,7 +352,7 @@ This stage executes the implementation plan from Stage 4b:
 
 **Output**: Working MVP
 
-**Verification**:
+### Stage 6 Complete Checklist
 - [ ] Core functionality works end-to-end
 - [ ] Tests pass
 - [ ] Matches north star vision
@@ -343,9 +368,9 @@ Run `/small-win-check` anytime:
 - When feeling uncertain about direction
 
 **Reads**:
-- `docs/*-north-star.md`
-- `docs/*-poc-plan.md`
-- `docs/*-design.md`
+- `docs/north-star.md`
+- `docs/poc-plan.md`
+- `docs/design.md`
 - `docs/poc*-results.md`
 - `PROJECT_STATE.md`
 

@@ -3,8 +3,8 @@
 ## Goal
 Implement the current PoC one step at a time.
 
-## Environment
-Claude Code (✅ CODE ALLOWED)
+## Code Allowed
+YES
 
 ## ⚠️ ONE STEP AT A TIME
 

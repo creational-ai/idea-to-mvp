@@ -3,8 +3,8 @@
 ## Goal
 Create technical architecture and integration plan.
 
-## Environment
-Claude Desktop (NO CODE)
+## Code Allowed
+NO
 
 ## Input
 - Concept doc from Stage 1

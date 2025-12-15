@@ -3,8 +3,8 @@
 ## Goal
 Refine the idea into a clear, feasible concept.
 
-## Environment
-Claude Desktop (NO CODE)
+## Code Allowed
+NO
 
 ## Input
 - Idea (verbal, notes, rough sketch)
@@ -16,7 +16,7 @@ Claude Desktop (NO CODE)
 4. Surface assumptions and unknowns
 
 ## Output
-`docs/[project]-north-star.md` using `assets/templates/north-star.md`
+`docs/north-star.md` using `assets/templates/north-star.md`
 
 ## Verification Checklist
 - [ ] Problem clearly stated

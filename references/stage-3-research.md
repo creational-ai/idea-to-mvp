@@ -3,8 +3,8 @@
 ## Goal
 Validate market fit and competitive landscape.
 
-## Environment
-Claude Desktop (NO CODE)
+## Code Allowed
+NO
 
 ## Input
 - Concept doc
@@ -65,4 +65,4 @@ At the end of research, make a clear decision:
 - Underestimating switching costs
 
 ## Next Stage
-→ Stage 4: PoC Planning (move to Claude Code)
+→ Stage 4: PoC Planning

@@ -3,14 +3,14 @@
 ## Goal
 Define what needs to be proven and in what order — with PRODUCTION-GRADE thin slices.
 
-## Environment
-Claude Code (NO CODE YET - planning only)
+## Code Allowed
+NO
 
 ## Input
 - Validated design docs (copied to `docs/` folder)
 
 ## Process
-1. Refine design with Claude Code's perspective
+1. Refine design with implementation perspective
 2. Identify atomic things to prove (PoCs)
 3. Map dependencies between PoCs
 4. Create PoC diagram

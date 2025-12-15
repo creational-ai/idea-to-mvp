@@ -3,8 +3,8 @@
 ## Goal
 Break the NEXT PoC into bite-sized, production-grade implementation steps.
 
-## Environment
-Claude Code (✅ CODE ALLOWED)
+## Code Allowed
+YES
 
 ## ⚠️ ONE PoC AT A TIME
 

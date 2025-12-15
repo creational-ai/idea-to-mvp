@@ -18,15 +18,15 @@ This deploys to:
 
 ## Stage Workflow
 
-| Stage | Environment | Code Allowed | Purpose |
-|-------|-------------|--------------|---------|
-| 1. Concept | Claude Desktop | NO | Refine idea into clear concept |
-| 2. Design | Claude Desktop | NO | Technical architecture |
-| 3. Research | Claude Desktop | NO | Market validation |
-| 4. PoC Planning | Claude Code | NO | Define what to prove and in what order |
-| 4b. PoC Implementation | Claude Code | YES | Break PoC into bite-sized steps |
-| 5. PoC Execution | Claude Code | YES | Implement one step at a time |
-| 6. MVP | Claude Code | YES | Combine proven PoCs |
+| Stage | Code Allowed | Purpose |
+|-------|--------------|---------|
+| 1. Concept | NO | Refine idea into North Star doc |
+| 2. Design | NO | Technical architecture |
+| 3. Research | NO | Market validation |
+| 4. PoC Planning | NO | Define what to prove and in what order |
+| 4b. PoC Implementation | YES | Break PoC into bite-sized steps |
+| 5. PoC Execution | YES | Implement one step at a time |
+| 6. MVP | YES | Combine proven PoCs |
 
 ## Key Principles
 
