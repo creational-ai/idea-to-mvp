@@ -61,6 +61,10 @@ This deploys to:
     ├── stage-4b-poc-implementation.md
     ├── stage-5-poc-execution.md
     └── stage-6-mvp.md
+
+~/.claude/commands/          # Global slash commands
+├── small-win-check.md
+└── verify-doc.md
 ```
 
 ## License
