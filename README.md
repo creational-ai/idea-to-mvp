@@ -38,6 +38,7 @@ This deploys to:
 ## Commands
 
 - `/small-win-check` - Run after completing PoC milestones to assess alignment with North Star vision
+- `/verify-doc <path>` - Verify a design or implementation document is sound, logical, and free of surprises
 
 ## File Structure
 
