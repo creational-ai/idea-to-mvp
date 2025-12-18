@@ -260,8 +260,14 @@ This stage executes the implementation plan from Stage 4b:
 - Work on Step 1, verify, then Step 2, verify, etc.
 - Each step is bite-sized (~30 min max)
 - Steps can break into sub-steps: 3a, 3b, 3c
-- Every step has pytest verification
 - Document results as you go
+
+⚠️ **EVERY STEP REQUIRES A PYTEST VERIFICATION SCRIPT**
+
+A step is NOT complete until:
+1. Implementation code exists (`PoC/stepN_*.py`)
+2. Test script exists (`tests/test_stepN_*.py`)
+3. All tests pass (`uv run pytest tests/test_stepN_*.py -v`)
 
 ---
 
