@@ -12,7 +12,8 @@
       "Bash(git remote set-url:*)",
       "WebSearch",
       "WebFetch(domain:docs.github.com)",
-      "WebFetch(domain:choosealicense.com)"
+      "WebFetch(domain:choosealicense.com)",
+      "Bash(ln:*)"
     ]
   }
 }

@@ -28,14 +28,38 @@ Only generate implementation plan for:
 5. Identify what makes this "production-grade" vs "demo"
 
 ## Output
-`docs/pocN-implementation.md` using `assets/templates/poc-implementation.md`
+
+Two documents are created:
+
+1. **Implementation Plan**: `docs/poc[N]-implementation.md` using `assets/templates/poc-implementation.md`
+   - Prerequisites with setup instructions
+   - Step-by-step implementation guide
+   - Code snippets, commands, configs
+   - Verification commands
+   - **NO status indicators** - keep it clean and focused on "how to implement"
+
+2. **Results Tracking**: `docs/poc[N]-results.md`
+   - Prerequisites completion status (✅ / ⏳)
+   - Step-by-step progress tracking
+   - Test results and counts
+   - Issues encountered
+   - Bug fixes
+   - Files created/modified checklist
+
+**Why two documents?**
+- Implementation doc = Evergreen guide (pure "how to do it")
+- Results doc = Live progress tracking (specific to this execution)
+- Keeps documentation clean, focused, and easy to maintain
 
 ## Verification Checklist
+- [ ] Implementation doc created (`docs/poc[N]-implementation.md`)
+- [ ] Results doc created (`docs/poc[N]-results.md`)
 - [ ] Prerequisites explicitly listed with setup instructions
 - [ ] Each step is small enough to verify independently
 - [ ] Each step has clear verification criteria (with code)
 - [ ] No step relies on mock data where real data is needed
 - [ ] Implementation would work in production context
+- [ ] Implementation doc contains NO status indicators (keep it clean)
 
 ## What CODE IS Allowed
 

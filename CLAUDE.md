@@ -4,65 +4,110 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Claude Code skill ("idea-to-mvp") that provides a structured workflow for taking ideas from concept to working product through 6 stages.
+This repo contains the "idea-to-mvp" Claude Code skill - a structured workflow for taking ideas from concept to MVP through 6 stages.
 
-## Stage Workflow
+## Repo Structure
 
-| Stage | Code Allowed | Purpose |
-|-------|--------------|---------|
-| 1. Concept | NO | Refine idea into North Star doc |
-| 2. Design | NO | Technical architecture |
-| 3. Research | NO | Market validation |
-| 4. PoC Planning | NO | Define what to prove and in what order |
-| 4b. PoC Implementation | YES | Break PoC into bite-sized steps |
-| 5. PoC Execution | YES | Implement one step at a time |
-| 6. MVP | YES | Combine proven PoCs |
+```
+idea-to-mvp/
+├── SKILL.md                    # Main skill definition
+├── README.md                   # Public documentation
+├── LICENSE                     # MIT License
+├── deploy.sh                   # Deploy skill to ~/.claude/skills/
+├── sync-from-user.sh           # Pull changes from deployed skill
+├── assets/templates/           # Document templates for users
+├── references/                 # Stage reference docs
+├── commands/                   # Slash commands (small-win-check, verify-doc)
+└── deployed-skill/             # Symlink to ~/.claude/skills/idea-to-mvp
+```
 
-## Critical Rules
+## Development Workflow
 
-**Stages 1-4 are NO-CODE zones.** If asked to write code in these stages, respond with: "We're in the [stage] stage — let's keep focus on [architecture/design/validation/planning]. Code comes in Stage 4b and beyond."
+### Making Changes
 
-**Stage 4b+**: Code is allowed. Include concrete snippets, commands, configs.
+1. **Edit files in this repo** (not in `~/.claude/skills/`)
+2. **Test locally** if needed
+3. **Deploy**: `./deploy.sh`
+4. **Commit and push**: Standard git workflow
 
-**One PoC at a time**: Only plan/execute one PoC before moving to the next. Learnings often change subsequent plans.
+### Sync from Deployed Skill
 
-**One step at a time**: In Stage 5, work through implementation steps sequentially with verification after each.
+If you made changes in `~/.claude/skills/idea-to-mvp/`:
+
+```bash
+./sync-from-user.sh
+git status  # Review changes
+```
 
 ## Key Commands
 
 ```bash
-# Run tests for a specific step
-uv run pytest tests/test_stepN_*.py -v
+# Deploy to ~/.claude/skills/ and ~/.claude/commands/
+./deploy.sh
 
-# Run all tests
-uv run pytest tests/ -v
+# Sync changes back from deployed skill
+./sync-from-user.sh
+
+# Check git status
+git status
 ```
 
-## Slash Command
+## File Naming Conventions
 
-`/small-win-check` - Run after completing PoC milestones to assess alignment with North Star vision, gaps, and recommendations.
+**Documents users create:**
+- `docs/north-star.md` - Vision and goals
+- `docs/design.md` - Architecture
+- `docs/poc-plan.md` - PoC planning
+- `docs/poc[N]-implementation.md` - Per-PoC implementation guide
+- `docs/poc[N]-results.md` - Per-PoC results tracking
+- `PROJECT_STATE.md` - Current status
 
-## File Structure
+**Tests:**
+- `tests/test_poc[N]_*.py` - Tests grouped by PoC
 
-- `docs/` - Project artifacts (concept.md, design.md, poc-plan.md, results)
-- `PoC/` - Implementation scripts (stepN_[description].py)
-- `tests/` - pytest tests (test_stepN_[description].py)
-- `PROJECT_STATE.md` - Current project status (update after each step)
-- `assets/templates/` - Templates for docs
-- `references/` - Detailed stage reference docs
+## Templates
 
-## Step Naming Convention
+Located in `assets/templates/`:
+- `north-star.md` - Stage 1 output
+- `design.md` - Stage 2 output
+- `poc-plan.md` - Stage 4 output
+- `poc-implementation.md` - Stage 4b output
+- `poc-results.md` - PoC completion summary
+- `PROJECT_STATE.md` - Project tracking
 
-| Pattern | Use |
-|---------|-----|
-| `step1_[description].py` | Main steps |
-| `step3a_[description].py` | Sub-steps |
-| `step4_1_[alternative].py` | Alternative approaches |
+## Stage References
 
-## Production-Grade Requirements
+Located in `references/`:
+- `stage-1-concept.md` through `stage-6-mvp.md`
+- `small-win-check.md` - Guidance for health checks
 
-PoCs must be thin vertical slices of production architecture:
-- Real integrations (actual APIs, databases), not mocks
-- Code that could ship with more features added
-- Patterns that scale
-- Config externalized (no hardcoded secrets)
+## Slash Commands
+
+Located in `commands/`:
+- `small-win-check.md` - Project health check
+- `verify-doc.md` - Document verification
+
+## Deployment
+
+The `deploy.sh` script copies files to:
+- `~/.claude/skills/idea-to-mvp/` - Skill files
+- `~/.claude/commands/` - Global commands
+
+## Git Workflow
+
+```bash
+# Standard workflow
+git add .
+git commit -m "Description"
+git push
+```
+
+**Remote**: `git@github-creational:creational-ai/idea-to-mvp.git`
+
+## Contributing Guidelines
+
+- Keep SKILL.md as the source of truth
+- Templates should be generic (no project-specific content)
+- References provide detailed stage guidance
+- Test slash commands after changes
+- Deploy before pushing to verify changes work

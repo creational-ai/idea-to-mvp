@@ -184,65 +184,51 @@ If research already exists (from prior sessions, reference docs, or external sou
 
 **Goal**: Break the NEXT PoC into bite-sized, production-grade implementation steps
 
+**Detailed Instructions**: See `references/stage-4b-poc-implementation.md`
+
 **Template**: `assets/templates/poc-implementation.md`
 
-⚠️ **ONE PoC AT A TIME**
+---
 
-Only generate implementation plan for:
-- The next logical PoC (based on dependency graph), OR
-- The PoC you explicitly choose
+### Overview
 
-**Why one at a time?**
-- Learnings from one PoC often change subsequent PoCs
-- Keeps planning nimble and agile
-- Avoids wasted effort on plans that become obsolete
+⚠️ **ONE PoC AT A TIME** - Only plan the next logical PoC to keep planning agile
+
+✅ **CODE IS ALLOWED** - Unlike Stages 1-4, use concrete code snippets, commands, and configs
+
+⚠️ **PRODUCTION-GRADE THIN SLICES** - Real integrations, not mocks; patterns that scale
 
 ---
 
-✅ **CODE IS ALLOWED IN STAGE 4b**
+### Input
+- Single PoC from `docs/poc-plan.md` (next in sequence or user-selected)
 
-Unlike Stages 1-4, implementation planning gets into specifics:
-- Concrete code snippets for each step
-- Specific function signatures
-- Exact commands to run
-- Configuration examples
-- Test code structure
+### Process
+See `references/stage-4b-poc-implementation.md` for detailed guidance on:
+- Listing prerequisites with setup instructions
+- Breaking implementation into bite-sized steps (~30 min each)
+- Defining verification for each step
+- Including specific code/commands/configs
+- Ensuring production-grade quality
 
-This is the bridge between "what we want to build" and "actually building it."
+### Output
 
----
+**Two documents** (see detailed rationale in reference doc):
 
-⚠️ **CRITICAL: Production-Grade Thin Slices**
+1. **Implementation Plan**: `docs/poc[N]-implementation.md`
+   - How to implement (evergreen guide)
+   - NO status indicators
 
-A PoC is NOT:
-- Mock data that simulates behavior
-- Hardcoded responses
-- Toy examples that don't reflect real usage
-- Code that "works" but can't evolve into production
+2. **Results Tracking**: `docs/poc[N]-results.md`
+   - Progress tracking (live status)
+   - Test results, issues, bug fixes
 
-A PoC IS:
-- A thin vertical slice of production architecture
-- Real integrations (actual Supabase, actual AWS, actual APIs)
-- Code that could ship (with more features added)
-- Patterns that scale to full implementation
-
-**Input**: Single PoC from poc-plan.md (the next one or user-selected)
-
-**Process**:
-1. List all prerequisites (setup Supabase, configure AWS, API keys, etc.)
-2. Break implementation into bite-sized steps (max 30 min each)
-3. Define verification for EACH step (not just end result)
-4. Include specific code snippets, commands, configs
-5. Identify what makes this "production-grade" vs "demo"
-
-**Output**: `docs/pocN-implementation.md` using template
-
-### Stage 4b Complete Checklist
-- [ ] Prerequisites explicitly listed with setup instructions
-- [ ] Each step is small enough to verify independently
-- [ ] Each step has clear verification criteria (with code)
-- [ ] No step relies on mock data where real data is needed
-- [ ] Implementation would work in production context
+### Complete Checklist
+- [ ] Both docs created (implementation + results)
+- [ ] Prerequisites with setup instructions
+- [ ] Steps are independently verifiable
+- [ ] Production-grade (real data, real integrations)
+- [ ] Implementation doc stays clean (no status)
 
 **Next**: → Stage 5: PoC Execution (for this PoC)
 
@@ -254,91 +240,56 @@ A PoC IS:
 
 **Goal**: Implement the current PoC one step at a time
 
-⚠️ **ONE STEP AT A TIME**
-
-This stage executes the implementation plan from Stage 4b:
-- Work on Step 1, verify, then Step 2, verify, etc.
-- Each step is bite-sized (~30 min max)
-- Steps can break into sub-steps: 3a, 3b, 3c
-- Document results as you go
-
-⚠️ **EVERY STEP REQUIRES A PYTEST VERIFICATION SCRIPT**
-
-A step is NOT complete until:
-1. Implementation code exists (`PoC/stepN_*.py`)
-2. Test script exists (`tests/test_stepN_*.py`)
-3. All tests pass (`uv run pytest tests/test_stepN_*.py -v`)
+**Detailed Instructions**: See `references/stage-5-poc-execution.md`
 
 ---
 
-### Step Naming Convention
+### Overview
 
-| Pattern | Description |
-|---------|-------------|
-| `step1_[description].py` | First step |
-| `step2_[description].py` | Second step |
-| `step2_validate_[x].py` | Verification for step 2 |
-| `step3a_[description].py` | Sub-step 3a |
-| `step3b_[description].py` | Sub-step 3b |
-| `step4_1_[alternative].py` | Alternative approach to step 4 |
+⚠️ **ONE STEP AT A TIME** - Implement, test, verify each step before moving to the next
 
----
+⚠️ **EVERY STEP REQUIRES PYTEST** - Tests must pass before marking step complete
 
-### Per-Step Workflow
-
-| Phase | Action | Output |
-|-------|--------|--------|
-| **1. Implement** | Write the step script | `PoC/stepN_[description].py` |
-| **2. Write Tests** | Cover critical paths + edge cases | `tests/test_stepN_[description].py` |
-| **3. Verify** | Run pytest | `uv run pytest tests/test_stepN_*.py -v` |
-| **4. Document** | Write results | `docs/[poc-name]-stepN-results.md` |
-| **5. Update State** | Update PROJECT_STATE.md | Run `/small-win-check` if needed |
-
-**Implementation Guidelines:**
-- Clear docstring with usage example
-- Self-contained, runnable script
-- Production-grade (real data, real integrations)
-
-**Test Guidelines:**
-- Cover critical paths
-- Test edge cases
-- Verify outputs match expectations
-
-**Documentation Guidelines:**
-- Use `assets/templates/step-results.md` template
-- Include: status, metrics, bug fixes, test coverage, commands
+📝 **DOCUMENT AS YOU GO** - Update results doc after each step
 
 ---
 
 ### Input
-- Implementation plan from Stage 4b (`docs/pocN-implementation.md`)
+- Implementation plan (`docs/poc[N]-implementation.md`)
+- Results tracking doc (`docs/poc[N]-results.md`)
 - Current step to work on
 
-### Output (per step)
-- `PoC/stepN_[description].py` — Implementation
-- `tests/test_stepN_[description].py` — Tests
-- `docs/[poc-name]-stepN-results.md` — Results (use template)
+### Per-Step Workflow
 
-### Output (when PoC complete)
-- `docs/pocN-results.md` — Overall PoC results
+See `references/stage-5-poc-execution.md` for detailed guidance on:
+1. Writing implementation code
+2. Writing tests (`tests/test_poc[N]_*.py`)
+3. Running verification (`uv run pytest`)
+4. Updating results doc
+5. Updating PROJECT_STATE.md
 
----
+### Output
 
-### Verification Checkpoints
+**Per step:**
+- Implementation code in appropriate modules
+- Tests added to `tests/test_poc[N]_*.py`
+- Results doc updated with progress
+
+**When PoC complete:**
+- All implementation and tests complete
+- `docs/poc[N]-results.md` shows all success criteria met
+
+### Verification Checklist
 
 **After each step:**
-- [ ] Script runs successfully
-- [ ] Tests pass (`uv run pytest tests/test_stepN_*.py -v`)
-- [ ] Results documented
+- [ ] Tests pass
+- [ ] Results doc updated
 - [ ] PROJECT_STATE.md updated
 
-**After all steps (PoC complete):**
-- [ ] All step tests pass
-- [ ] `docs/pocN-results.md` written
+**After PoC complete:**
+- [ ] All tests pass
 - [ ] Production-grade checklist verified
 - [ ] `/small-win-check` run
-
----
 
 **Next after PoC complete**: → Return to Stage 4b for next PoC
 

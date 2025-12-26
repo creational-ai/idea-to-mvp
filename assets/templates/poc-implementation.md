@@ -1,6 +1,9 @@
 # PoC [N] Implementation Plan: [Name]
 
+> **Track Progress**: See `docs/poc[N]-results.md` for implementation status, test results, and issues.
+
 ## Overview
+
 | Attribute | Value |
 |-----------|-------|
 | **PoC Name** | [Name] |
@@ -13,89 +16,219 @@
 
 Complete these BEFORE starting implementation steps.
 
-### 1. [Prerequisite Name, e.g., "Setup Supabase"]
+### 1. [Prerequisite Name]
+
 **Why Needed**: [Why this PoC requires it]
+
 **Steps**:
 1. [Setup step 1]
 2. [Setup step 2]
+3. [Setup step 3]
 
 **Commands**:
+```bash
+# [Description]
+[actual commands to run]
+```
 
-    [Actual commands to run]
+**Verification**:
+```bash
+# [What to verify]
+[command to verify it's working]
+# Expected: [what success looks like]
+```
 
-**Verification**: 
-
-    [Command to verify it's working]
-
-**Credentials/Config Needed**: 
-
-    [What to save in .env or config]
-
-### 2. [Prerequisite Name, e.g., "Configure AWS S3"]
+### 2. [Prerequisite Name]
 ...
+
+---
+
+## Success Criteria
+
+From `docs/[source-doc].md`:
+
+- [ ] [Criterion 1 - specific, measurable]
+- [ ] [Criterion 2 - specific, measurable]
+- [ ] [Criterion 3 - specific, measurable]
+- [ ] [Criterion 4 - specific, measurable]
+
+---
+
+## Architecture
+
+### File Structure
+```
+[project-root]/
+├── [new-folder]/
+│   ├── __init__.py           # [Purpose]
+│   ├── [file1.py]            # [Purpose]
+│   └── [file2.py]            # [Purpose]
+├── [existing-file.py]        # Updated
+└── tests/
+    └── test_poc[N]_[name].py # All tests
+```
+
+### Design Principles
+1. **[Principle 1]**: [Description]
+2. **[Principle 2]**: [Description]
+3. **[Principle 3]**: [Description]
 
 ---
 
 ## Implementation Steps
 
-Each step should be completable in ~30 minutes or less.
+**Approach**: [Brief description of implementation strategy - e.g., "Build bottom-up", "Test each layer independently", etc.]
 
-### Step 1: [Name]
+### Step 0: [Setup/Infrastructure]
+
 **Goal**: [What this step accomplishes]
 
 **Tasks**:
 - [ ] [Task 1]
 - [ ] [Task 2]
+- [ ] [Task 3]
 
 **Code**:
-
-    # [Description of what this code does]
-    [Actual code to write]
-
-**Verification**:
-
-    # Run this to verify step is complete
-    [test command or script]
-
-**Output**: [File created, endpoint working, etc.]
-
-### Step 2: [Name]
-**Goal**: [What this step accomplishes]
-**Depends On**: Step 1
-
-**Tasks**:
-- [ ] [Task 1]
-- [ ] [Task 2]
-
-**Code**:
-
-    [Actual code to write]
+```bash
+# [Description of what these commands do]
+[actual commands to run]
+```
 
 **Verification**:
+```bash
+[command to verify step is complete]
+# Expected: [what success looks like]
+```
 
-    [test command]
-
-**Output**: [File created, endpoint working, etc.]
-
-### Step 3: [Name]
-...
+**Output**: [What's created/changed]
 
 ---
 
-## Test Structure
+### Step 1: [Name] + Tests
 
-    # tests/test_poc[N]_[name].py
+**Goal**: [What this step accomplishes]
 
-    def test_[what_it_tests]():
-        """[Description]"""
+**Tasks**:
+- [ ] [Implementation task 1]
+- [ ] [Implementation task 2]
+- [ ] [Write tests]
+
+**Code** (add to `[file-path]`):
+```python
+"""[Description]."""
+
+[actual code to write]
+```
+
+**Tests** (add to `tests/test_poc[N]_[name].py`):
+```python
+"""Tests for [what this step does]."""
+
+class Test[ClassName]:
+    """Tests for [component]."""
+
+    def test_[what_it_tests](self):
+        """[Description]."""
         # Arrange
         [setup]
-        
+
         # Act
         [action]
-        
+
         # Assert
         [verification]
+```
+
+**Verification**:
+```bash
+cd [directory] && uv run pytest tests/test_poc[N]_[name].py::Test[ClassName] -v
+```
+
+**Output**: [X]/[X] tests passing
+
+---
+
+### Step 2: [Name] + Tests
+
+**Goal**: [What this step accomplishes]
+
+**Tasks**:
+- [ ] [Task 1]
+- [ ] [Task 2]
+- [ ] [Write tests]
+
+**Code** (update `[file-path]`):
+```python
+[actual code to write]
+```
+
+**Tests** (add to `tests/test_poc[N]_[name].py`):
+```python
+class Test[ClassName]:
+    """Tests for [component]."""
+
+    def test_[scenario](self):
+        """[Description]."""
+        [test code]
+```
+
+**Verification**:
+```bash
+cd [directory] && uv run pytest tests/test_poc[N]_[name].py::Test[ClassName] -v
+```
+
+**Output**: [X]/[X] tests passing
+
+---
+
+### Step [N]: [Final Integration/Validation]
+
+**Goal**: [What this final step accomplishes]
+
+**Tasks**:
+- [ ] [Integration task 1]
+- [ ] [Integration task 2]
+- [ ] [Final validation]
+
+**Tests** (add to `tests/test_poc[N]_[name].py`):
+```python
+class Test[Integration]:
+    """Integration tests for [PoC name]."""
+
+    def test_[end_to_end_scenario](self):
+        """[Description]."""
+        [test code]
+```
+
+**Verification**:
+```bash
+# Run all PoC tests
+cd [directory] && uv run pytest tests/test_poc[N]_[name].py -v
+
+# Verify existing tests still pass
+cd [directory] && uv run pytest tests/ -v --ignore=tests/test_poc[N]_[name].py
+```
+
+**Output**: All tests passing ([total-new] new + [total-existing] existing = [total] tests)
+
+---
+
+## Test Summary
+
+### After PoC [N] Complete
+
+| Test File | Tests | What It Covers |
+|-----------|-------|----------------|
+| `tests/test_poc1_*.py` | X | [Description] |
+| `tests/test_poc2_*.py` | X | [Description] |
+| `tests/test_poc[N]_*.py` | X | [This PoC] |
+
+**Total Expected: [X] tests**
+
+**Test Breakdown (PoC [N])**:
+- Test[Class1]: X tests
+- Test[Class2]: X tests
+- Test[Integration]: X tests
 
 ---
 
@@ -109,17 +242,61 @@ Before marking PoC complete, verify:
 - [ ] **Scalable patterns**: Code structure would work at 10x scale
 - [ ] **Tests exist**: pytest covers the critical paths
 - [ ] **Config externalized**: No hardcoded secrets or environment-specific values
+- [ ] **Type safety**: Type hints on all public methods/functions
+- [ ] **Clean separation**: Each file has single responsibility
 
 ---
 
 ## What "Done" Looks Like
 
-[Describe the concrete end state — what can you demonstrate when this PoC is complete?]
+```bash
+# 1. All new tests pass
+cd [directory] && uv run pytest tests/test_poc[N]_[name].py -v
 
-Example:
+# 2. All existing tests still pass
+cd [directory] && uv run pytest tests/ -v --ignore=tests/test_poc[N]_[name].py
 
-    # Running this should produce [expected output]
-    [command]
+# 3. [Specific functionality works]
+[command to demonstrate]
+# Expected output:
+[what success looks like]
+
+# 4. [Clean imports work]
+cd [directory] && uv run python -c "
+[import statements to verify]
+print('✓ All imports successful')
+"
+```
+
+---
+
+## Files to Create/Modify
+
+| File | Action | Status |
+|------|--------|--------|
+| `[path/to/new-file.py]` | Create | Pending: [purpose] |
+| `[path/to/existing-file.py]` | Modify | Pending: [what changes] |
+| `tests/test_poc[N]_[name].py` | Create | Pending: all tests |
+| `pyproject.toml` | Modify | Pending: [dependencies] |
+
+---
+
+## Dependencies
+
+Update `[path/to/pyproject.toml]`:
+
+```toml
+dependencies = [
+    "[existing-dep]>=X.Y.Z",
+    "[new-dep]>=X.Y.Z",  # Add for [reason]
+    ...
+]
+```
+
+Then run:
+```bash
+cd [directory] && uv sync
+```
 
 ---
 
@@ -127,4 +304,24 @@ Example:
 
 | Risk | Likelihood | Mitigation |
 |------|------------|------------|
-| [Risk 1] | [H/M/L] | [Strategy] |
+| [Risk 1] | H/M/L | [Strategy] |
+| [Risk 2] | H/M/L | [Strategy] |
+
+---
+
+## Error Codes Reference
+
+_(Optional - only if this PoC introduces new error codes)_
+
+| Code | Meaning | Used By |
+|------|---------|---------|
+| `[ERROR_CODE]` | [Description] | [function/tool] |
+
+---
+
+## Next Steps After PoC [N]
+
+1. ✅ Verify all tests pass ([total] total)
+2. ✅ Verify [specific success criteria]
+3. ✅ Document success in PROJECT_STATE.md
+4. → Proceed to PoC [N+1]: [Next PoC name]
