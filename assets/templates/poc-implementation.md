@@ -10,6 +10,8 @@
 | **Proves** | [What this validates] |
 | **Production-Grade Because** | [Why this isn't a toy/mock] |
 
+> ⚠️ **Self-Contained Requirement**: This PoC must be complete and functional on its own. All existing functionality must continue working. If adding new capability could break existing code, add alongside (don't replace). See `references/stage-4b-poc-implementation.md` for details.
+
 ---
 
 ## Prerequisites
@@ -244,6 +246,7 @@ Before marking PoC complete, verify:
 - [ ] **Config externalized**: No hardcoded secrets or environment-specific values
 - [ ] **Type safety**: Type hints on all public methods/functions
 - [ ] **Clean separation**: Each file has single responsibility
+- [ ] **Self-contained**: Works independently; all existing functionality still works; doesn't require future PoCs
 
 ---
 

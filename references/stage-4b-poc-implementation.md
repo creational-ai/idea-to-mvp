@@ -60,6 +60,7 @@ Two documents are created:
 - [ ] No step relies on mock data where real data is needed
 - [ ] Implementation would work in production context
 - [ ] Implementation doc contains NO status indicators (keep it clean)
+- [ ] **PoC is self-contained** - fully functional without requiring future PoCs
 
 ## What CODE IS Allowed
 
@@ -79,6 +80,48 @@ Each step should be:
 
 If a step is too big, break it into sub-steps (3a, 3b, 3c).
 
+## Self-Contained PoC Requirement
+
+**CRITICAL**: Each PoC must be complete and functional on its own.
+
+### What "Self-Contained" Means
+
+✅ **Good - PoC works independently:**
+- All existing functionality continues working after PoC completes
+- New capability can be tested/verified immediately
+- No "TODO: will work after PoC N+1" comments
+- Tests pass at end of PoC
+
+❌ **Bad - PoC breaks things:**
+- Existing features stop working
+- "This will work once we complete PoC 9" comments
+- Tests fail until future PoC
+- System non-functional between PoCs
+
+### Strategy: Add Alongside, Don't Replace
+
+When implementing something that could break existing code:
+
+**Don't do this:**
+```python
+# Replaces existing function (breaks old callers)
+def get_client() -> NewType:
+    # New implementation
+```
+
+**Do this instead:**
+```python
+# Keep old function working
+def get_client() -> OldType:
+    # Existing implementation unchanged
+
+# Add new function alongside
+def get_new_client() -> NewType:
+    # New implementation
+```
+
+**Migration happens in next PoC**, not this one.
+
 ## Production-Grade Checklist
 
 For each step, ensure:
@@ -87,6 +130,7 @@ For each step, ensure:
 - [ ] Error handling included
 - [ ] Would work at 10x scale
 - [ ] Tests can be written
+- [ ] No breaking changes to existing functionality
 
 ## Common Pitfalls
 - Steps that are too large
@@ -94,6 +138,7 @@ For each step, ensure:
 - No verification criteria
 - Mock data that hides real complexity
 - Skipping error handling
+- **Breaking self-contained requirement** (add alongside don't replace; PoC must work independently without future PoCs)
 
 ## Next Stage
 → Stage 5: PoC Execution (for this PoC)

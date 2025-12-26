@@ -198,6 +198,8 @@ If research already exists (from prior sessions, reference docs, or external sou
 
 ⚠️ **PRODUCTION-GRADE THIN SLICES** - Real integrations, not mocks; patterns that scale
 
+🔒 **SELF-CONTAINED** - Each PoC must be complete and functional on its own (see reference doc)
+
 ---
 
 ### Input
@@ -229,6 +231,7 @@ See `references/stage-4b-poc-implementation.md` for detailed guidance on:
 - [ ] Steps are independently verifiable
 - [ ] Production-grade (real data, real integrations)
 - [ ] Implementation doc stays clean (no status)
+- [ ] **PoC is self-contained** (no breaking changes, doesn't require future PoC to work)
 
 **Next**: → Stage 5: PoC Execution (for this PoC)
 
