@@ -13,7 +13,8 @@
       "WebSearch",
       "WebFetch(domain:docs.github.com)",
       "WebFetch(domain:choosealicense.com)",
-      "Bash(ln:*)"
+      "Bash(ln:*)",
+      "Bash(./deploy.sh)"
     ]
   }
 }
