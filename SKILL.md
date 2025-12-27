@@ -206,6 +206,8 @@ Each PoC must be:
 
 ⚠️ **PRODUCTION-GRADE THIN SLICES** - Real integrations, not mocks; patterns that scale
 
+🏗️ **QUALITY OOP CODE** - Use classes with clear responsibilities, Pydantic models for all data structures, strong typing everywhere
+
 🔒 **SELF-CONTAINED** - Each PoC must be complete and functional on its own; doesn't break existing functionality and existing tests (see reference doc)
 
 ---
@@ -219,6 +221,7 @@ See `references/stage-4b-poc-implementation.md` for detailed guidance on:
 - Breaking implementation into bite-sized steps (~30 min each)
 - Defining verification for each step
 - Including specific code/commands/configs
+- Writing quality OOP code with Pydantic models and strong typing
 - Ensuring production-grade quality
 
 ### Output

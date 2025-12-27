@@ -71,9 +71,10 @@ From `docs/[source-doc].md`:
 ```
 
 ### Design Principles
-1. **[Principle 1]**: [Description]
-2. **[Principle 2]**: [Description]
-3. **[Principle 3]**: [Description]
+1. **OOP Design**: Use classes with single responsibility and clear interfaces
+2. **Pydantic Models**: All data structures (configs, payloads, records) use Pydantic BaseModel
+3. **Strong Typing**: Type hints on all functions, methods, and class attributes
+4. **[Additional Principle]**: [Description if needed]
 
 ---
 
@@ -238,13 +239,15 @@ cd [directory] && uv run pytest tests/ -v --ignore=tests/test_poc[N]_[name].py
 
 Before marking PoC complete, verify:
 
+- [ ] **OOP Design**: Classes with single responsibility and clear interfaces
+- [ ] **Pydantic Models**: All data structures use Pydantic (no raw dicts for structured data)
+- [ ] **Strong Typing**: Type hints on all functions, methods, and class attributes
 - [ ] **No mock data**: All data comes from real sources (DB, API, files)
 - [ ] **Real integrations**: External services are actually connected, not stubbed
 - [ ] **Error handling**: Failures are handled, not ignored
 - [ ] **Scalable patterns**: Code structure would work at 10x scale
 - [ ] **Tests exist**: pytest covers the critical paths
 - [ ] **Config externalized**: No hardcoded secrets or environment-specific values
-- [ ] **Type safety**: Type hints on all public methods/functions
 - [ ] **Clean separation**: Each file has single responsibility
 - [ ] **Self-contained**: Works independently; all existing functionality still works; doesn't require future PoCs
 

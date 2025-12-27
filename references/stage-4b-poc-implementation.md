@@ -71,6 +71,53 @@ Unlike Stages 1-4, implementation planning gets into specifics:
 - Configuration examples
 - Test code structure
 
+## Code Quality Principles
+
+**Write production-grade, maintainable code from the start:**
+
+### Object-Oriented Design
+- **Classes over functions**: Encapsulate related behavior and state
+- **Single Responsibility**: Each class has one clear purpose
+- **Composition**: Build complex behavior from simple, composable classes
+- **Clear interfaces**: Public methods are intuitive and well-documented
+
+### Strong Typing with Pydantic
+- **Use Pydantic models** for all data structures (configs, API payloads, database records)
+- **Type everything**: All function signatures, class attributes, variables
+- **Validation built-in**: Pydantic handles validation, serialization, and documentation
+- **No dictionaries for structured data**: Use Pydantic models instead
+
+**Example - Good OOP with Pydantic:**
+```python
+from pydantic import BaseModel, Field
+from typing import Optional
+
+class UserConfig(BaseModel):
+    """User configuration with validation."""
+    username: str = Field(..., min_length=3, max_length=50)
+    email: str
+    age: Optional[int] = Field(None, ge=0, le=150)
+
+class UserService:
+    """Handles user operations."""
+
+    def __init__(self, config: UserConfig):
+        self.config = config
+
+    def validate_user(self) -> bool:
+        """Validate user meets requirements."""
+        return len(self.config.username) >= 3
+```
+
+**Example - Avoid:**
+```python
+# ❌ Weak typing, no validation
+def process_user(user_dict: dict) -> dict:
+    username = user_dict.get("username", "")
+    # No validation, error-prone
+    return {"status": "ok"}
+```
+
 ## Step Size Guidelines
 
 Each step should be:
@@ -127,6 +174,9 @@ def get_new_client() -> NewType:
 ## Production-Grade Checklist
 
 For each step, ensure:
+- [ ] **OOP Design**: Classes with single responsibility, clear interfaces
+- [ ] **Pydantic Models**: All data structures use Pydantic (no raw dicts for structured data)
+- [ ] **Strong Typing**: Type hints on all functions, methods, and attributes
 - [ ] No mock data where real data is needed
 - [ ] Real integrations, not stubs
 - [ ] Error handling included
@@ -140,6 +190,9 @@ For each step, ensure:
 - No verification criteria
 - Mock data that hides real complexity
 - Skipping error handling
+- **Using raw dicts instead of Pydantic models** (loses validation, type safety, documentation)
+- **Procedural code instead of OOP** (harder to test, maintain, extend)
+- **Missing type hints** (reduces IDE support, increases bugs)
 - **Breaking self-contained requirement** (add alongside don't replace; PoC must work independently without future PoCs)
 
 ## Next Stage
