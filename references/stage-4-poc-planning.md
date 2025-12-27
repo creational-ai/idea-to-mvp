@@ -39,6 +39,20 @@ NO
 - Have vague "it works" success criteria
 - Be disconnected from the end goal
 
+## PoC Requirements
+
+Each PoC must be:
+- **Atomic**: Proves one specific thing
+- **Measurable**: Clear success criteria
+- **Self-contained**: Works independently; doesn't break existing functionality and existing tests
+
+**Why self-contained matters:**
+- Each PoC is complete within its scope (doesn't need non-dependent PoCs to work)
+- System remains functional between PoCs (no breaking changes to existing functionality/tests)
+- Prevents cascading failures
+- Clearly shows what it proves and what capabilities it opens up for dependent PoCs
+- Safe to pause work at any PoC boundary
+
 ## PoC Dependency Mapping
 
 Create a diagram showing:

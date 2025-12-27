@@ -120,6 +120,8 @@ def get_new_client() -> NewType:
     # New implementation
 ```
 
+**Note**: Examples shown in Python. Apply the same "add alongside, don't replace" principle in your language.
+
 **Migration happens in next PoC**, not this one.
 
 ## Production-Grade Checklist

@@ -11,14 +11,15 @@ Structured workflow for taking ideas from concept to working product.
 | 3. Research | ❌ NO | Market analysis, validation |
 | 4. PoC Planning | ❌ NO | PoC plan, dependency map |
 | 4b. PoC Implementation Planning | ✅ YES | Per-PoC implementation plan (ONE at a time) |
+| 4c. Feature/Issue Overview | ❌ NO | Feature analysis, updated PoC plan |
 | 5. PoC Execution | ✅ YES | Working code + tests |
 | 6. MVP | ✅ YES | Working product |
 
 ---
 
-## ⛔ CRITICAL: NO-CODE STAGES (1-4)
+## ⛔ CRITICAL: NO-CODE STAGES (1-4, 4c)
 
-**Stages 1, 2, 3, and 4 are strictly NO-CODE zones.**
+**Stages 1, 2, 3, 4, and 4c are strictly NO-CODE zones.**
 
 (Stage 4b is where code becomes allowed — see below)
 
@@ -43,8 +44,8 @@ Structured workflow for taking ideas from concept to working product.
 - Prevents premature implementation decisions
 - Forces clear conceptual understanding before coding
 
-### If Asked to Write Code in Stages 1-4:
-Respond: "We're in the [Concept/Design/Research/PoC Planning] stage — let's keep focus on [architecture/design/validation/planning]. Code comes in Stage 4b (Implementation Planning) and Stage 5 (Execution). For now, let me describe how this would work at a high level..."
+### If Asked to Write Code in Stages 1-4, 4c:
+Respond: "We're in the [Concept/Design/Research/PoC Planning/Feature Overview] stage — let's keep focus on [architecture/design/validation/planning]. Code comes in Stage 4b (Implementation Planning) and Stage 5 (Execution). For now, let me describe how this would work at a high level..."
 
 ---
 
@@ -163,6 +164,13 @@ If research already exists (from prior sessions, reference docs, or external sou
 5. Define success criteria for each PoC
 6. Create initial PROJECT_STATE.md
 
+**PoC Requirements**:
+
+Each PoC must be:
+- **Atomic**: Proves one specific thing
+- **Measurable**: Clear success criteria
+- **🔒 Self-contained**: Works independently; doesn't break existing functionality and existing tests
+
 **Output**:
 - `docs/poc-plan.md`
 - `PROJECT_STATE.md` (initial creation)
@@ -198,7 +206,7 @@ If research already exists (from prior sessions, reference docs, or external sou
 
 ⚠️ **PRODUCTION-GRADE THIN SLICES** - Real integrations, not mocks; patterns that scale
 
-🔒 **SELF-CONTAINED** - Each PoC must be complete and functional on its own (see reference doc)
+🔒 **SELF-CONTAINED** - Each PoC must be complete and functional on its own; doesn't break existing functionality and existing tests (see reference doc)
 
 ---
 
@@ -231,7 +239,7 @@ See `references/stage-4b-poc-implementation.md` for detailed guidance on:
 - [ ] Steps are independently verifiable
 - [ ] Production-grade (real data, real integrations)
 - [ ] Implementation doc stays clean (no status)
-- [ ] **PoC is self-contained** (no breaking changes, doesn't require future PoC to work)
+- [ ] **PoC is self-contained** (works independently; doesn't break existing functionality and existing tests; doesn't require future PoC to work)
 
 **Next**: → Stage 5: PoC Execution (for this PoC)
 
@@ -295,6 +303,55 @@ See `references/stage-5-poc-execution.md` for detailed guidance on:
 - [ ] `/small-win-check` run
 
 **Next after PoC complete**: → Return to Stage 4b for next PoC
+
+---
+
+## Stage 4c: Feature/Issue Overview
+
+**Trigger**: User-initiated when new requirements are discovered during implementation
+
+**Goal**: Analyze new features or issues that emerge and plan how to address them
+
+**Template**: `assets/templates/feature-overview.md`
+
+---
+
+### When This Stage Happens
+
+This stage is **user-initiated** when:
+1. **User identifies**: "I found an issue/feature we need to handle"
+2. **User asks**: "Are there any new features/issues we should address?"
+
+⚠️ **Each injected PoC must still be self-contained** - works independently; doesn't break existing functionality and existing tests
+
+---
+
+### Process
+
+See `references/stage-4c-feature-overview.md` for detailed guidance on:
+1. Document current architecture
+2. Define target architecture
+3. Identify what needs to change
+4. Break down into new self-contained PoCs
+5. Evaluate implementation approaches
+6. Make design decisions
+
+### Output
+
+- `docs/[feature-name]-overview.md` - Comprehensive analysis
+- Updated `docs/poc-plan.md` - Incorporate new PoCs into overall plan
+
+### Complete Checklist
+
+- [ ] Overview document created
+- [ ] Current vs target architecture clearly defined
+- [ ] Changes identified and scoped
+- [ ] New PoCs defined (each self-contained: works independently; doesn't break existing functionality and existing tests)
+- [ ] Approaches evaluated
+- [ ] Risks and mitigations documented
+- [ ] `docs/poc-plan.md` updated with injected PoCs
+
+**Next**: → Return to Stage 4b for new PoC implementation planning
 
 ---
 
