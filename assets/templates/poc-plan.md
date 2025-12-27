@@ -5,11 +5,40 @@
 
 ## PoC Dependency Diagram
 
-    [ASCII diagram showing PoC dependencies]
+```
+┌──────────────────────┐              ┌──────────────────────┐
+│  PoC 1: [Name]       │              │  PoC 2: [Name]       │
+│  [Description]       │              │  [Description]       │
+└──────────┬───────────┘              └──────────┬───────────┘
+           │                                     │
+           └─────────────────┬───────────────────┘
+                             │
+                             ▼
+                  ┌──────────────────────┐
+                  │  PoC 3: [Name]       │
+                  │  [Description]       │
+                  └──────────┬───────────┘
+                             │
+                 ┌───────────┴───────────┐
+                 │                       │
+                 ▼                       ▼
+      ┌──────────────────────┐   ┌──────────────────────┐
+      │  PoC 4: [Name]       │   │  PoC 5: [Name]       │
+      │  [Description]       │   │  [Description]       │
+      └──────────┬───────────┘   └──────────┬───────────┘
+                 │                           │
+                 └───────────┬───────────────┘
+                             │
+                             ▼
+                  ┌──────────────────────┐
+                  │  PoC 6: [Name]       │
+                  │  [Description]       │
+                  └──────────────────────┘
+```
 
-    PoC 1 ──→ PoC 3 ──→ PoC 5
-                  ↘
-    PoC 2 ────────→ PoC 4 ──→ PoC 6
+**Parallel tracks**: [Describe which PoCs can run in parallel]
+
+**Note**: This is a plan - NO status indicators (✅ ⬜) in diagram. Status belongs in PROJECT_STATE.md.
 
 ## PoCs
 

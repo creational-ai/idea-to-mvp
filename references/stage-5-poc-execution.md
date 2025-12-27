@@ -35,8 +35,7 @@ A step is NOT complete until:
 | **1. Implement** | Write implementation code | Implementation files in appropriate modules |
 | **2. Write Tests** | Cover critical paths + edge cases | `tests/test_poc[N]_*.py` |
 | **3. Verify** | Run pytest | `uv run pytest tests/test_poc[N]_*.py -v` |
-| **4. Document** | Update results doc | `docs/poc[N]-results.md` (update step status) |
-| **5. Update State** | Update PROJECT_STATE.md | Run `/small-win-check` if needed |
+| **4. Document** | Update results doc | `docs/poc[N]-results.md` (step status + lessons learned) |
 
 ## Output (per step)
 - Implementation code files — In appropriate modules/directories
@@ -52,14 +51,14 @@ A step is NOT complete until:
 **After each step:**
 - [ ] Implementation code works as expected
 - [ ] Tests pass (`uv run pytest tests/test_poc[N]_*.py -v`)
-- [ ] `docs/poc[N]-results.md` updated with step progress
-- [ ] PROJECT_STATE.md updated
+- [ ] `docs/poc[N]-results.md` updated with step progress and lessons learned
 
 **After all steps (PoC complete):**
 - [ ] All PoC tests pass
 - [ ] `docs/poc[N]-results.md` shows all success criteria met
 - [ ] Production-grade checklist verified
-- [ ] `/small-win-check` run
+- [ ] PROJECT_STATE.md updated with PoC completion
+- [ ] `/small-win-check` (optional - run when needed for alignment verification)
 
 ## Implementation Guidelines
 - Clear docstrings with usage examples
@@ -76,15 +75,18 @@ A step is NOT complete until:
 ## Documentation Guidelines
 - Update `docs/poc[N]-results.md` after each step
 - Include: step status (⏳ Pending / ✅ Complete), test results, issues encountered, bug fixes
+- **Add "Lessons Learned" section** for each step documenting key insights, patterns, and gotchas
 - Keep implementation doc clean (no status updates there)
 - Document any design decisions or learnings
+- Update PROJECT_STATE.md at the END when PoC is complete
 
 ## Common Pitfalls
 - Skipping tests
-- Not documenting as you go
+- Not documenting as you go (especially lessons learned)
 - Steps that are too large
 - Ignoring edge cases
-- Not updating PROJECT_STATE.md
+- Updating PROJECT_STATE.md during steps (instead of at the end)
+- Forgetting to document what you learned from issues/bugs
 
 ## Next Stage
 → Return to Stage 4b for next PoC (after PoC complete)

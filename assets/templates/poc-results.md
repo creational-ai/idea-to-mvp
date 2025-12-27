@@ -8,29 +8,84 @@
 | **Completed** | [Date] |
 | **Proves** | [What this validated] |
 
-## What Was Built
-[Brief description of implementation]
+---
 
-## Test Results
+## Goal
+[What this PoC aims to achieve]
 
-    [pytest output or test summary]
+---
 
-## Key Findings
-1. [Finding 1]
-2. [Finding 2]
+## Success Criteria
+From `docs/poc[N]-implementation.md`:
 
-## Decisions Made
+- [ ] [Criterion 1]
+- [ ] [Criterion 2]
+- [ ] [Criterion 3]
+
+**ALL SUCCESS CRITERIA MET** ✅ / **IN PROGRESS** 🔄
+
+---
+
+## Prerequisites Completed
+- [ ] [Prerequisite 1]
+- [ ] [Prerequisite 2]
+
+---
+
+## Implementation Progress
+
+### Step [N]: [Step Name] ✅/🔄/⬜
+**Status**: Complete / In Progress / Pending ([Date])
+**Expected**: [What should be built]
+
+**Implementation**:
+- ✅ [What was implemented]
+- ✅ [What was implemented]
+
+**Test Results**: ✅ [X]/[Y] tests passing
+```bash
+[pytest output]
+```
+
+**Issues**:
+- [Issue encountered and how it was resolved]
+
+**Lessons Learned**:
+- [Key insight 1 - patterns, gotchas, design decisions]
+- [Key insight 2]
+- [Key insight 3]
+
+**Result**: [Summary of step completion and readiness for next step]
+
+---
+
+### Step [N+1]: [Step Name]
+[Repeat structure for each step]
+
+---
+
+## Final Validation
+
+**All Tests**:
+```bash
+[Full test suite output showing all tests passing]
+```
+
+**Total**: [X] tests passing ([Y] existing + [Z] new PoC tests)
+
+---
+
+## Key Decisions Made
 | Decision | Rationale |
 |----------|-----------|
 | [Decision] | [Why] |
 
-## Issues Encountered
-| Issue | Resolution |
-|-------|------------|
-| [Issue] | [How resolved] |
+---
 
 ## What This Unlocks
 [Which PoCs can now proceed?]
+
+---
 
 ## Next Steps
 1. [Action 1]

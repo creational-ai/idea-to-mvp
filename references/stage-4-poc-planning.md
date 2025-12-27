@@ -60,12 +60,46 @@ Create a diagram showing:
 - Which PoCs depend on others
 - The critical path to MVP
 
+**Format**: Use boxes for each PoC with clear names. No status indicators (this is a plan, not status tracking).
+
 Example:
 ```
-PoC 1 (Auth) ──→ PoC 3 (User Data) ──→ PoC 5 (Full Flow)
-                        ↘
-PoC 2 (API) ─────────────→ PoC 4 (Integration)
+┌──────────────────────┐              ┌──────────────────────┐
+│  PoC 1: Database     │              │  PoC 2: API Server   │
+│  Schema              │              │  Basic               │
+└──────────┬───────────┘              └──────────┬───────────┘
+           │                                     │
+           └─────────────────┬───────────────────┘
+                             │
+                             ▼
+                  ┌──────────────────────┐
+                  │  PoC 3: CRUD         │
+                  │  Operations          │
+                  └──────────┬───────────┘
+                             │
+                 ┌───────────┴───────────┐
+                 │                       │
+                 ▼                       ▼
+      ┌──────────────────────┐   ┌──────────────────────┐
+      │  PoC 4: Analytics    │   │  PoC 5: Reports      │
+      └──────────┬───────────┘   └──────────┬───────────┘
+                 │                           │
+                 └───────────┬───────────────┘
+                             │
+                             ▼
+                  ┌──────────────────────┐
+                  │  PoC 6: E2E          │
+                  │  Integration         │
+                  └──────────────────────┘
 ```
+
+**Key Points**:
+- Each PoC gets a box with its name and brief description
+- Use vertical flow (top to bottom) for main dependency path
+- Show parallel PoCs side by side at the same level
+- Use arrows (│ ▼ ─ └ ┌) to show dependencies
+- Keep it clean - NO status indicators (✅ ⬜) in the plan diagram
+
 
 ## Production-Grade Reminder
 

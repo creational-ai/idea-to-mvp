@@ -276,8 +276,7 @@ See `references/stage-5-poc-execution.md` for detailed guidance on:
 1. Writing implementation code
 2. Writing tests (`tests/test_poc[N]_*.py`)
 3. Running verification (`uv run pytest`)
-4. Updating results doc
-5. Updating PROJECT_STATE.md
+4. Updating results doc with step progress and lessons learned
 
 ### Output
 
@@ -294,13 +293,14 @@ See `references/stage-5-poc-execution.md` for detailed guidance on:
 
 **After each step:**
 - [ ] Tests pass
-- [ ] Results doc updated
-- [ ] PROJECT_STATE.md updated
+- [ ] Results doc updated with step progress and lessons learned
 
 **After PoC complete:**
 - [ ] All tests pass
 - [ ] Production-grade checklist verified
-- [ ] `/small-win-check` run
+- [ ] Results doc shows all success criteria met
+- [ ] PROJECT_STATE.md updated
+- [ ] `/small-win-check` (optional - run when needed for alignment check)
 
 **Next after PoC complete**: → Return to Stage 4b for next PoC
 
@@ -376,13 +376,16 @@ See `references/stage-4c-feature-overview.md` for detailed guidance on:
 
 ---
 
-## Small Win Check Protocol
+## Small Win Check Protocol (Optional)
 
-Run `/small-win-check` anytime:
+The `/small-win-check` skill is **optional** and can be run when you need to verify alignment with the north star vision.
+
+**When to run** (use your judgment):
 - After completing a PoC milestone
 - Mid-PoC when taking a break
 - When wrapping up for the day
 - When feeling uncertain about direction
+- When you want to verify alignment with north star
 
 **Reads**:
 - `docs/north-star.md`
@@ -400,4 +403,4 @@ Run `/small-win-check` anytime:
 
 **Output**: Structured report with status, progress, gaps, recommendations
 
-**After small-win-check**: Update PROJECT_STATE.md with findings
+**Note**: Not required for every PoC - use when beneficial for direction validation.
