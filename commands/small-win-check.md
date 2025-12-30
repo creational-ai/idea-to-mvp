@@ -12,8 +12,6 @@ Scan the project for these artifacts (names may vary):
 4. **Project State** - `PROJECT_STATE.md` - Current status tracking
 5. **PoC Results** - `docs/poc*-results.md` - Completed work
 
-If files aren't found, ask the user to identify the relevant documents.
-
 ## Assessment Criteria
 
 ### 1. Alignment Check
