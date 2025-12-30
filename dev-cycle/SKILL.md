@@ -273,7 +273,6 @@ See `references/3-execution-guide.md` for detailed per-step workflow:
 - Include: step status, test results, issues, bug fixes
 - **Add "Lessons Learned"** for each step (insights, patterns, gotchas)
 - Keep implementation doc clean (no status updates there)
-- Update PROJECT_STATE.md only at the END when work is complete
 
 ### Output
 
@@ -285,7 +284,6 @@ See `references/3-execution-guide.md` for detailed per-step workflow:
 **When work complete**:
 - All implementation and test files complete
 - `docs/[name]-results.md` with final status
-- Updated `PROJECT_STATE.md`
 
 ### Stage 3 Verification Checklist
 
@@ -298,8 +296,6 @@ See `references/3-execution-guide.md` for detailed per-step workflow:
 - [ ] All tests pass (new + existing)
 - [ ] `docs/[name]-results.md` shows all success criteria met
 - [ ] Production-grade checklist verified
-- [ ] PROJECT_STATE.md updated with completion
-- [ ] `/small-win-check` (optional - run when needed for alignment check)
 
 ### Common Pitfalls
 
@@ -307,7 +303,6 @@ See `references/3-execution-guide.md` for detailed per-step workflow:
 - Not documenting as you go (especially lessons learned)
 - Steps that are too large
 - Ignoring edge cases
-- Updating PROJECT_STATE.md during steps (wait until end)
 - Using raw dicts instead of Pydantic models
 - Missing type hints
 - Breaking self-contained requirement
@@ -345,7 +340,7 @@ Use Glob/Grep to check for existing documents:
 2. **Documentation stays clean**
    - Implementation docs are evergreen (no status)
    - Results docs track live progress
-   - PROJECT_STATE.md updated only at end
+   - Use `/small-win-check` for PROJECT_STATE.md updates
 
 3. **One item at a time**
    - Stage 1: Can plan multiple work items
@@ -417,6 +412,6 @@ This skill can be used **standalone** OR as part of the **dev-design workflow**:
    - Repeat for next work item
 
 **Files Created**:
-- `PROJECT_STATE.md` - Created by dev-cycle on first use, updated after each work item
+- `PROJECT_STATE.md` - Created by dev-cycle on first use, updated via `/small-win-check`
 - `docs/[name]-implementation.md` - Implementation guide (evergreen)
 - `docs/[name]-results.md` - Progress tracking (live status)

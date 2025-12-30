@@ -162,9 +162,11 @@ If research already exists (from prior sessions, reference docs, or external sou
 **PoC Requirements**:
 
 Each PoC must be:
-- **Atomic**: Proves one specific thing
+- **Atomic**: Proves one specific thing (one capability/assumption, NOT one task - may include multiple related tasks)
 - **Measurable**: Clear success criteria
 - **🔒 Self-contained**: Works independently; doesn't break existing functionality and existing tests
+
+**Golden Rule**: One feature = One PoC (minimize the number of PoCs; group related work)
 
 **Output**: `docs/[name]-poc-design.md`
 

@@ -92,6 +92,55 @@ def get_client() -> DatabaseClient:
 - Clearly shows what it proves and what capabilities it opens up for dependent PoCs
 - Safe to pause work at any PoC boundary
 
+**⚠️ CRITICAL: Minimize the Number of PoCs**
+
+**Golden Rule**: One feature = One PoC (unless it spans the entire stack)
+
+**When to use ONE PoC:**
+- Feature is contained in one layer (frontend OR backend OR database)
+- Related tasks that test the same capability together
+- CRUD operations for a single entity (Create + Read + Update + Delete users)
+- All tasks validate the same technical assumption
+
+**When to split into multiple PoCs:**
+- Feature spans entire stack (database + API + frontend) and each layer needs independent testing
+- Clear dependency boundaries (PoC B literally cannot start until PoC A is proven)
+- Different technical risks that should be validated separately
+- **BUT STILL MINIMIZE** - If you can test 2 layers together, do it
+
+**GOOD - Minimized PoCs:**
+```
+✅ PoC 3: User Management (One PoC)
+   - Database schema for users
+   - CRUD API endpoints
+   - Authentication logic
+   - Tests for all operations
+   - Proves: "We can manage users end-to-end"
+```
+
+**BAD - Too many micro-PoCs:**
+```
+❌ PoC 3: User Database Schema
+❌ PoC 4: Create User API
+❌ PoC 5: Read User API
+❌ PoC 6: Update User API
+❌ PoC 7: Delete User API
+❌ PoC 8: User Authentication
+```
+
+**When forced to split (e.g., full-stack feature):**
+```
+✅ PoC 3: User Management Backend
+   - Database + API + Auth (grouped)
+   - Proves: "Backend handles users correctly"
+
+✅ PoC 4: User Management Frontend
+   - UI components + forms + state
+   - Proves: "Frontend integrates with user API"
+```
+
+**Remember**: Every additional PoC adds overhead. Group related work aggressively.
+
 **Strategy: Add Alongside, Don't Replace**
 
 When new capability could break existing code:

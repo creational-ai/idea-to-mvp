@@ -57,8 +57,6 @@ A step is NOT complete until:
 - [ ] All tests pass
 - [ ] `docs/[name]-results.md` shows all success criteria met
 - [ ] Production-grade checklist verified
-- [ ] PROJECT_STATE.md updated with work completion
-- [ ] `/small-win-check` (optional - run when needed for alignment verification)
 
 ## Implementation Guidelines
 - Clear docstrings with usage examples
@@ -78,14 +76,12 @@ A step is NOT complete until:
 - **Add "Lessons Learned" section** for each step documenting key insights, patterns, and gotchas
 - Keep implementation doc clean (no status updates there)
 - Document any design decisions or learnings
-- Update PROJECT_STATE.md at the END when work is complete
 
 ## Common Pitfalls
 - Skipping tests
 - Not documenting as you go (especially lessons learned)
 - Steps that are too large
 - Ignoring edge cases
-- Updating PROJECT_STATE.md during steps (instead of at the end)
 - Forgetting to document what you learned from issues/bugs
 
 ## Next Stage
