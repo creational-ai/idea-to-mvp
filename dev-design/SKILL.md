@@ -8,10 +8,10 @@ Structured workflow for taking ideas from concept to executable PoC plan.
 
 | Stage | Output |
 |-------|--------|
-| 1. North Star | `north-star.md` |
-| 2. Architecture | `[name]-architecture.md` |
+| 1. North Star | `docs/north-star.md` |
+| 2. Architecture | `docs/[name]-architecture.md` |
 | 3. Research | Market analysis, validation |
-| 4. PoC Design | `[name]-poc-design.md` |
+| 4. PoC Design | `docs/[name]-poc-design.md` |
 
 **Note**: `[name]` can be anything - project name, feature name, module name, etc.
 
@@ -63,10 +63,10 @@ Respond: "We're in the [North Star/Architecture/Research/PoC Design] stage — l
 3. Identify key components and their relationships
 4. Surface assumptions and unknowns
 
-**Output**: `north-star.md` (in project root or docs/)
+**Output**: `docs/north-star.md`
 
 ### Stage 1 Complete Checklist
-- [ ] `north-star.md` created using template
+- [ ] `docs/north-star.md` created using template
 - [ ] Problem clearly stated
 - [ ] Solution approach makes sense
 - [ ] Technical feasibility seems reasonable
@@ -80,11 +80,11 @@ Respond: "We're in the [North Star/Architecture/Research/PoC Design] stage — l
 
 **Goal**: Create technical architecture and integration plan
 
-**Input**: North Star doc (`north-star.md`)
+**Input**: North Star doc (`docs/north-star.md`)
 
 **Template**: `assets/templates/architecture.md`
 
-**Naming**: `[name]-architecture.md` where `[name]` is your project/feature/module name
+**Naming**: `docs/[name]-architecture.md` where `[name]` is your project/feature/module name
 
 **Process**:
 1. Define system architecture
@@ -93,16 +93,16 @@ Respond: "We're in the [North Star/Architecture/Research/PoC Design] stage — l
 4. Design component interactions
 5. Identify integration points
 
-**Output**: `[name]-architecture.md`
+**Output**: `docs/[name]-architecture.md`
 
 ### Stage 2 Complete Checklist
-- [ ] `[name]-architecture.md` created using template
+- [ ] `docs/[name]-architecture.md` created using template
 - [ ] Architecture diagram complete
 - [ ] Tech stack justified
 - [ ] Data flows documented
 - [ ] Integration points identified
 - [ ] No code written (only diagrams and descriptions)
-- [ ] Run `/verify-doc [name]-architecture.md`
+- [ ] Run `/verify-doc docs/[name]-architecture.md`
 
 **Next**: → Stage 3: Research
 
@@ -112,7 +112,7 @@ Respond: "We're in the [North Star/Architecture/Research/PoC Design] stage — l
 
 **Goal**: Validate market fit and competitive landscape
 
-**Input**: Architecture doc (`[name]-architecture.md`)
+**Input**: North Star doc (`docs/north-star.md`) and Architecture doc (`docs/[name]-architecture.md`)
 
 **Process**:
 1. Research competitors
@@ -121,7 +121,7 @@ Respond: "We're in the [North Star/Architecture/Research/PoC Design] stage — l
 4. Assess technical differentiation
 5. Multiple research passes to fine-tune
 
-**Output**: Updates to `north-star.md` and `[name]-architecture.md`, market analysis
+**Output**: Updates to `docs/north-star.md` and `docs/[name]-architecture.md`, market analysis
 
 ### Fast-Track Option
 
@@ -146,11 +146,11 @@ If research already exists (from prior sessions, reference docs, or external sou
 
 **Goal**: Define what needs to be proven and in what order — with PRODUCTION-GRADE thin slices
 
-**Input**: Validated architecture doc (`[name]-architecture.md`)
+**Input**: Validated architecture doc (`docs/[name]-architecture.md`)
 
 **Template**: `assets/templates/poc-design.md`
 
-**Naming**: `[name]-poc-design.md` where `[name]` matches your architecture doc prefix
+**Naming**: `docs/[name]-poc-design.md` where `[name]` matches your architecture doc prefix
 
 **Process**:
 1. Refine architecture with implementation perspective
@@ -166,15 +166,15 @@ Each PoC must be:
 - **Measurable**: Clear success criteria
 - **🔒 Self-contained**: Works independently; doesn't break existing functionality and existing tests
 
-**Output**: `[name]-poc-design.md`
+**Output**: `docs/[name]-poc-design.md`
 
 ### Stage 4 Complete Checklist
-- [ ] `[name]-poc-design.md` created using template
+- [ ] `docs/[name]-poc-design.md` created using template
 - [ ] Each PoC proves one specific thing
 - [ ] Dependencies mapped (which PoCs unlock others)
 - [ ] Success criteria measurable
 - [ ] Order of execution clear
-- [ ] Run `/verify-doc [name]-poc-design.md`
+- [ ] Run `/verify-doc docs/[name]-poc-design.md`
 
 **Next**: → Hand off to **dev-cycle skill** for implementation
 
@@ -182,7 +182,7 @@ Each PoC must be:
 
 ## Next: Hand Off to dev-cycle
 
-Once you have `[name]-poc-design.md` completed, hand off to the **dev-cycle** skill for implementation.
+Once you have `docs/[name]-poc-design.md` completed, hand off to the **dev-cycle** skill for implementation.
 
 **dev-cycle** handles all development work through a repeating cycle: plan work items → execute step-by-step → test → repeat.
 

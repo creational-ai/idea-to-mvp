@@ -7,8 +7,8 @@ Validate market fit and competitive landscape.
 NO
 
 ## Input
-- North Star doc (`north-star.md`)
-- Architecture doc (`[name]-architecture.md`)
+- North Star doc (`docs/north-star.md`)
+- Architecture doc (`docs/[name]-architecture.md`)
 
 ## Process
 1. Research competitors
@@ -18,7 +18,7 @@ NO
 5. Multiple research passes to fine-tune
 
 ## Output
-- Updates to `north-star.md` and `[name]-architecture.md`
+- Updates to `docs/north-star.md` and `docs/[name]-architecture.md`
 - Market analysis notes
 
 ## Verification Checklist

@@ -16,7 +16,7 @@ Stage 2 of dev-design: Design system architecture without writing code.
 ## Input
 
 **First argument (required):**
-- Path to north-star.md (e.g., `north-star.md`, `docs/north-star.md`)
+- Path to north-star.md (e.g., `docs/north-star.md`)
 
 **User notes (optional):**
 ```
@@ -24,12 +24,12 @@ Stage 2 of dev-design: Design system architecture without writing code.
 ```
 
 **Mode Detection:**
-- If `[name]-architecture.md` exists → Update mode (refine existing document)
+- If `docs/[name]-architecture.md` exists → Update mode (refine existing document)
 - Otherwise → Create mode (new document from north star)
 
 **Output naming:**
 - Derives `[name]` from north-star.md content or user notes
-- Creates/updates `[name]-architecture.md`
+- Creates/updates `docs/[name]-architecture.md`
 
 ## Key Requirements
 

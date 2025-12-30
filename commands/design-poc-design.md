@@ -16,8 +16,9 @@ Stage 4 of dev-design: Plan atomic PoCs with clear success criteria and dependen
 ## Input
 
 **First argument (required):**
-- Path to architecture doc (e.g., `core-architecture.md`, `docs/core-architecture.md`)
-- OR path to existing PoC design doc for update mode (e.g., `core-poc-design.md`)
+- Path to architecture doc (e.g., `docs/core-architecture.md`) → Create mode
+- OR path to existing PoC design doc (e.g., `docs/core-poc-design.md`) → Update mode
+- OR path to overview doc (e.g., `docs/feature-x-overview.md`) → Update mode from new feature
 
 **User notes (optional):**
 ```
@@ -25,13 +26,14 @@ Stage 4 of dev-design: Plan atomic PoCs with clear success criteria and dependen
 ```
 
 **Mode Detection:**
-- If first argument is `*-poc-design.md` and exists → **Update mode** (add new PoCs after implementation discoveries)
-- If first argument is `*-architecture.md` → Create mode using this architecture
-- Auto-detects if `[name]-poc-design.md` exists when architecture provided
+- If first argument is `docs/*-poc-design.md` and exists → **Update mode** (add new PoCs from user notes)
+- If first argument is `docs/*-overview.md` → **Update mode** (extract PoCs from overview document)
+- If first argument is `docs/*-architecture.md` → Create mode (new poc-design from architecture)
+- Auto-detects if `docs/[name]-poc-design.md` exists when architecture provided
 
 **Output naming:**
-- Derives `[name]` from architecture file name
-- Creates/updates `[name]-poc-design.md`
+- Derives `[name]` from file name (architecture or existing poc-design)
+- Creates/updates `docs/[name]-poc-design.md`
 
 ## Key Requirements
 
@@ -46,13 +48,42 @@ Stage 4 of dev-design: Plan atomic PoCs with clear success criteria and dependen
 4. Create PoC diagram
 5. Define success criteria for each PoC
 
-**Update Mode** - When new features/requirements discovered during implementation:
-1. Read existing `[name]-poc-design.md`
+**Update Mode A** - From overview document (common workflow):
+1. Read the overview doc (e.g., `docs/feature-x-overview.md`)
+2. Extract work items/PoCs identified in the overview
+3. Read existing `docs/[name]-poc-design.md`
+4. **Append** new PoCs with next sequential numbers (e.g., if last PoC is #5, new ones are #6, #7, #8)
+5. Update dependency diagram to show where new PoCs fit
+6. **DO NOT renumber** existing PoCs
+
+**Update Mode B** - From user notes (quick updates):
+1. Read existing `docs/[name]-poc-design.md`
 2. Identify new PoCs needed based on user notes
-3. **Append** new PoCs with next sequential numbers (e.g., if last PoC is #5, new ones are #6, #7, #8)
+3. **Append** new PoCs with next sequential numbers
 4. Update dependency diagram to show where new PoCs fit
 5. **DO NOT renumber** existing PoCs
-6. Maintain all existing PoC definitions
+
+## Examples
+
+**Create mode** (initial PoC design):
+```bash
+/design-poc-design docs/core-architecture.md
+```
+
+**Update from overview** (🔥 common workflow after `/dev-overview`):
+```bash
+/dev-overview --notes "Add caching layer to reduce API calls"
+# Creates docs/caching-overview.md with work items
+
+/design-poc-design docs/caching-overview.md
+# Extracts PoCs from overview and adds to docs/core-poc-design.md
+```
+
+**Update from notes** (quick manual updates):
+```bash
+/design-poc-design docs/core-poc-design.md \
+  --notes "Add PoCs for rate limiting and retry logic discovered in PoC 3"
+```
 
 ## PoC Requirements
 
@@ -63,8 +94,8 @@ Each PoC must be:
 
 ## Output
 
-Create `[name]-poc-design.md` using the template.
+Create `docs/[name]-poc-design.md` using the template.
 
 ## After Completion
 
-Run `/verify-doc [name]-poc-design.md` to validate, then hand off to **dev-cycle** skill for implementation.
+Run `/verify-doc docs/[name]-poc-design.md` to validate, then hand off to **dev-cycle** skill for implementation.

@@ -7,7 +7,7 @@ Create technical architecture and integration plan.
 NO
 
 ## Input
-- North Star doc from Stage 1 (`north-star.md`)
+- North Star doc from Stage 1 (`docs/north-star.md`)
 
 ## Process
 1. Define system architecture
@@ -17,9 +17,9 @@ NO
 5. Identify integration points
 
 ## Output
-`[name]-architecture.md` using `assets/templates/architecture.md`
+`docs/[name]-architecture.md` using `assets/templates/architecture.md`
 
-Example: `core-architecture.md`, `mobile-architecture.md`
+Example: `docs/core-architecture.md`, `docs/mobile-architecture.md`
 
 ## Verification Checklist
 - [ ] Architecture diagram complete

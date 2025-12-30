@@ -7,7 +7,7 @@ Define what needs to be proven and in what order — with PRODUCTION-GRADE thin 
 NO
 
 ## Input
-- Validated architecture doc (`[name]-architecture.md`)
+- Validated architecture doc (`docs/[name]-architecture.md`)
 
 ## Process
 1. Refine architecture with implementation perspective
@@ -17,9 +17,9 @@ NO
 5. Define success criteria for each PoC
 
 ## Output
-`[name]-poc-design.md` using `assets/templates/poc-design.md`
+`docs/[name]-poc-design.md` using `assets/templates/poc-design.md`
 
-Example: `core-poc-design.md`, `mobile-poc-design.md`
+Example: `docs/core-poc-design.md`, `docs/mobile-poc-design.md`
 
 ## Verification Checklist
 - [ ] Each PoC proves one specific thing

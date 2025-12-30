@@ -120,7 +120,7 @@ Where `[name]` is descriptive:
 - [ ] Recommended approach selected with rationale
 - [ ] Risks identified with mitigations
 - [ ] Design decisions documented
-- [ ] `[name]-poc-design.md` updated (if applicable)
+- [ ] `docs/[name]-poc-design.md` updated (if applicable)
 - [ ] No code written (only diagrams and descriptions)
 - [ ] Run `/verify-doc docs/[name]-overview.md`
 
@@ -408,9 +408,9 @@ This skill can be used **standalone** OR as part of the **dev-design workflow**:
 **Standalone**: Use dev-cycle for any development work (features, bugs, refactoring, etc.)
 
 **With dev-design**:
-1. **dev-design** (Stages 1-4) creates the initial plan: `north-star.md`, `[name]-architecture.md`, `[name]-poc-design.md`
+1. **dev-design** (Stages 1-4) creates the initial plan: `docs/north-star.md`, `docs/[name]-architecture.md`, `docs/[name]-poc-design.md`
 2. **dev-cycle** takes over for the development loop:
-   - Pick work item from `[name]-poc-design.md`
+   - Pick work item from `docs/[name]-poc-design.md`
    - Stage 1: Create overview if needed (for new issues/features)
    - Stage 2: Plan the implementation
    - Stage 3: Execute step by step

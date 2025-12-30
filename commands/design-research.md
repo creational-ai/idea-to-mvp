@@ -15,7 +15,7 @@ Stage 3 of dev-design: Research competitors and validate market assumptions.
 ## Input
 
 **First argument (required):**
-- Path to architecture doc (e.g., `core-architecture.md`, `docs/core-architecture.md`)
+- Path to architecture doc (e.g., `docs/core-architecture.md`)
 
 **User notes (optional):**
 ```
@@ -23,12 +23,12 @@ Stage 3 of dev-design: Research competitors and validate market assumptions.
 ```
 
 **Required files to read:**
-- `north-star.md` - For context
-- `[name]-architecture.md` - The architecture to research
+- `docs/north-star.md` - For context
+- `docs/[name]-architecture.md` - The architecture to research
 
 **Files that will be updated:**
-- `north-star.md` - Updated with market validation
-- `[name]-architecture.md` - Updated with competitive insights
+- `docs/north-star.md` - Updated with market validation
+- `docs/[name]-architecture.md` - Updated with competitive insights
 
 ## Key Requirements
 

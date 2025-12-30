@@ -21,7 +21,7 @@ Stage 1 of dev-design: Transform rough ideas into structured vision documents.
 ```
 
 **Mode Detection:**
-- If `north-star.md` exists → Update mode (refine existing document based on user notes)
+- If `docs/north-star.md` exists → Update mode (refine existing document based on user notes)
 - Otherwise → Create mode (new document from user's idea/notes)
 
 ## Key Requirements
