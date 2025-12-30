@@ -1,7 +1,7 @@
-# Stage 1: Concept
+# Stage 1: North Star
 
 ## Goal
-Refine the idea into a clear, feasible concept.
+Refine the idea into a clear, feasible vision.
 
 ## Code Allowed
 NO
@@ -35,7 +35,7 @@ NO
 - Jumping to solutions before understanding the problem
 - Being too vague about the target user
 - Ignoring technical constraints
-- Scope creep at concept stage
+- Scope creep at north star stage
 
 ## Next Stage
-→ Stage 2: Design
+→ Stage 2: Architecture

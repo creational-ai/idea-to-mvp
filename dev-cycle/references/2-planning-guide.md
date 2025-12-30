@@ -18,7 +18,7 @@ Only generate implementation plan for:
 - Avoids wasted effort on plans that become obsolete
 
 ## Input
-- Single work item from `[idea]-poc-plan.md` OR feature/bug to implement
+- Single work item from `[name]-poc-design.md` OR feature/bug to implement
 
 ## Process
 1. List all prerequisites (setup Supabase, configure AWS, API keys, etc.)

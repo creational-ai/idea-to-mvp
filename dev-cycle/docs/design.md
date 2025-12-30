@@ -57,10 +57,10 @@ User Request
 - **Inputs**:
   - Feature/issue/bug description from user
   - Current architecture (from codebase)
-  - Existing docs ([idea]-poc-plan.md, [idea]-design.md)
+  - Existing docs ([name]-poc-design.md, [name]-architecture.md)
 - **Outputs**:
   - `docs/[name]-overview.md` - Design document (e.g., database-abstraction-overview.md, fix-auth-bug-overview.md)
-  - Updated `[idea]-poc-plan.md` - With new PoCs added (if applicable)
+  - Updated `[name]-poc-design.md` - With new PoCs added (if applicable)
 - **Dependencies**: Templates (overview.md), References (1-overview-guide.md)
 - **Code Allowed**: NO - Pure design and analysis
 - **Command**: `/dev-overview <notes>`
@@ -68,7 +68,7 @@ User Request
 #### Stage 2: Implementation Plan
 - **Purpose**: Break down work into actionable steps
 - **Inputs**:
-  - Single PoC from poc-plan.md OR feature/bug to implement
+  - Single PoC from poc-design.md OR feature/bug to implement
   - Overview document (if from Stage 1)
 - **Outputs**:
   - `docs/[name]-implementation.md` - Evergreen implementation guide (e.g., poc6-implementation.md)
@@ -103,8 +103,8 @@ User Request
    - Analyzes current architecture
    - Defines target architecture
    - Breaks into self-contained PoCs
-   - Updates [idea]-poc-plan.md
-   → Outputs: overview.md, updated [idea]-poc-plan.md
+   - Updates [name]-poc-design.md
+   → Outputs: overview.md, updated [name]-poc-design.md
 
 3. Stage 2 (Implementation Plan):
    - Takes NEXT PoC from plan
@@ -162,11 +162,11 @@ User Request
 
 ## Integration Points
 
-### Parent Skill: blueprint
+### Parent Skill: dev-design
 - **Type**: Nested skill / Command
-- **Purpose**: dev-cycle is extracted from blueprint to be self-contained
+- **Purpose**: dev-cycle is extracted from dev-design to be self-contained
 - **Contract**:
-  - Can be used standalone OR as part of blueprint workflow
+  - Can be used standalone OR as part of dev-design workflow
   - Uses same template patterns
   - Compatible with PROJECT_STATE.md tracking
 
@@ -183,9 +183,9 @@ User Request
 - **Type**: File system integration
 - **Purpose**: Reads/writes project docs
 - **Contract**:
-  - Reads: `[idea]-poc-plan.md`, `[idea]-design.md`, `PROJECT_STATE.md`
+  - Reads: `[name]-poc-design.md`, `[name]-architecture.md`, `PROJECT_STATE.md`
   - Writes: `docs/*-overview.md`, `docs/*-implementation.md`, `docs/*-results.md`
-  - Updates: `[idea]-poc-plan.md`, `PROJECT_STATE.md`
+  - Updates: `[name]-poc-design.md`, `PROJECT_STATE.md`
 
 ## Key Design Decisions
 
@@ -250,18 +250,18 @@ User Request
   - Prevents technical debt accumulation
   - Steps are small (~30min), so testing overhead is minimal
 
-### Decision 6: Stage 1 Updates poc-plan.md (When Applicable)
+### Decision 6: Stage 1 Updates poc-design.md (When Applicable)
 - **Context**: Where should new PoCs from overview be tracked?
 - **Options Considered**:
   - **Option A**: Keep in overview.md only
-  - **Option B**: Update central poc-plan.md
-- **Decision**: Option B - Update poc-plan.md when work involves PoCs
+  - **Option B**: Update central poc-design.md
+- **Decision**: Option B - Update poc-design.md when work involves PoCs
 - **Rationale**:
   - Single source of truth for all PoCs
   - Easier to track dependencies across features
   - Prevents PoC numbering conflicts
   - Central plan stays up-to-date
-  - Note: For simple bugs/features, poc-plan.md update may not be needed
+  - Note: For simple bugs/features, poc-design.md update may not be needed
 
 ### Decision 7: Commands on Top of Skill
 - **Context**: Should we provide command shortcuts for each stage?
@@ -306,7 +306,7 @@ Claude: [Following dev-cycle skill instructions]
    - Breaking into PoCs...
 
    Created: docs/database-abstraction-overview.md
-   Updated: [idea]-poc-plan.md (added PoC 6, 7, 8)"
+   Updated: [name]-poc-design.md (added PoC 6, 7, 8)"
 
 User: [Reviews docs, runs /verify-doc, fixes issues]
 

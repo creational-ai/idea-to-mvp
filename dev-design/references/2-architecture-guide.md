@@ -1,4 +1,4 @@
-# Stage 2: Design
+# Stage 2: Architecture
 
 ## Goal
 Create technical architecture and integration plan.
@@ -7,7 +7,7 @@ Create technical architecture and integration plan.
 NO
 
 ## Input
-- Concept doc from Stage 1 (`north-star.md`)
+- North Star doc from Stage 1 (`north-star.md`)
 
 ## Process
 1. Define system architecture
@@ -17,9 +17,9 @@ NO
 5. Identify integration points
 
 ## Output
-`[idea]-design.md` using `assets/templates/design.md`
+`[name]-architecture.md` using `assets/templates/architecture.md`
 
-Example: `core-design.md`, `mobile-design.md`
+Example: `core-architecture.md`, `mobile-architecture.md`
 
 ## Verification Checklist
 - [ ] Architecture diagram complete

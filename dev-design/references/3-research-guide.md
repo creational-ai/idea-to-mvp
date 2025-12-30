@@ -7,8 +7,8 @@ Validate market fit and competitive landscape.
 NO
 
 ## Input
-- Concept doc
-- Design doc
+- North Star doc (`north-star.md`)
+- Architecture doc (`[name]-architecture.md`)
 
 ## Process
 1. Research competitors
@@ -18,7 +18,7 @@ NO
 5. Multiple research passes to fine-tune
 
 ## Output
-- Updates to concept + design docs
+- Updates to `north-star.md` and `[name]-architecture.md`
 - Market analysis notes
 
 ## Verification Checklist
@@ -55,7 +55,7 @@ NO
 ## Go/No-Go Decision
 At the end of research, make a clear decision:
 - **GO**: Evidence supports moving forward
-- **PIVOT**: Adjust concept/design based on findings
+- **PIVOT**: Adjust north-star/architecture based on findings
 - **NO-GO**: Evidence suggests this won't work
 
 ## Common Pitfalls
@@ -65,4 +65,4 @@ At the end of research, make a clear decision:
 - Underestimating switching costs
 
 ## Next Stage
-→ Stage 4: PoC Planning
+→ Stage 4: PoC Design

@@ -4,7 +4,7 @@
 
 A structured workflow for taking ideas from concept to working product through two complementary skills:
 
-1. **blueprint** - Planning phase (0 to 1)
+1. **dev-design** - Design phase (0 to 1)
 2. **dev-cycle** - Development loop (1 to N)
 
 ## Quick Start
@@ -19,19 +19,19 @@ cd idea-to-mvp
 
 ## Skills Overview
 
-### blueprint - Planning Phase
+### dev-design - Design Phase
 
 Creates the foundation before any code is written.
 
 **Stages**:
-1. Concept - Refine idea into North Star doc
-2. Design - Technical architecture
+1. North Star - Refine idea into North Star doc
+2. Architecture - Technical architecture
 3. Research - Market validation
-4. PoC Planning - Define work items and dependencies
+4. PoC Design - Define work items and dependencies
 
-**Output**: `north-star.md`, `[idea]-design.md`, `[idea]-poc-plan.md`
+**Output**: `north-star.md`, `[name]-architecture.md`, `[name]-poc-design.md`
 
-**Deploy to**: `~/.claude/skills/blueprint/`
+**Deploy to**: `~/.claude/skills/dev-design/`
 
 ### dev-cycle - Development Loop
 
@@ -53,8 +53,8 @@ Implements work items through a repeating 3-stage cycle.
 ## Workflow
 
 ```
-1. Use blueprint to create your plan
-   → Outputs: north-star.md, core-design.md, core-poc-plan.md
+1. Use dev-design to create your plan
+   → Outputs: north-star.md, core-architecture.md, core-poc-design.md
 
 2. Use dev-cycle to execute the plan
    → /dev-plan: Plan first work item
@@ -68,7 +68,7 @@ Implements work items through a repeating 3-stage cycle.
 
 ## Key Principles
 
-- **blueprint is NO-CODE** - Pure planning and design
+- **dev-design is NO-CODE** - Pure design and planning
 - **dev-cycle allows code** - Stage 1 is design-only, Stages 2-3 allow code
 - **One work item at a time** - Plan and execute incrementally
 - **Production-grade quality** - OOP, Pydantic, type hints, tests required
@@ -86,7 +86,7 @@ idea-to-mvp/                    # Project repo
 │   ├── dev-plan.md
 │   ├── dev-execute.md
 │   └── small-win-check.md
-├── blueprint/                  # Planning skill
+├── dev-design/                 # Design skill
 │   ├── SKILL.md
 │   ├── assets/templates/
 │   └── references/
@@ -96,7 +96,7 @@ idea-to-mvp/                    # Project repo
     └── references/
 
 ~/.claude/skills/               # Deployed skills
-├── blueprint/
+├── dev-design/
 └── dev-cycle/
 
 ~/.claude/commands/             # Global commands

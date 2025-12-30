@@ -120,7 +120,7 @@ Where `[name]` is descriptive:
 - [ ] Recommended approach selected with rationale
 - [ ] Risks identified with mitigations
 - [ ] Design decisions documented
-- [ ] `[idea]-poc-plan.md` updated (if applicable)
+- [ ] `[name]-poc-design.md` updated (if applicable)
 - [ ] No code written (only diagrams and descriptions)
 - [ ] Run `/verify-doc docs/[name]-overview.md`
 
@@ -390,7 +390,7 @@ Use Glob/Grep to check for existing documents:
 **Good fits**:
 - Building a new feature
 - Fixing a complex bug
-- Implementing PoCs from blueprint
+- Implementing PoCs from dev-design
 - Refactoring existing code
 - Adding new capabilities
 
@@ -401,16 +401,16 @@ Use Glob/Grep to check for existing documents:
 
 ---
 
-## Integration with blueprint
+## Integration with dev-design
 
-This skill can be used **standalone** OR as part of the **blueprint workflow**:
+This skill can be used **standalone** OR as part of the **dev-design workflow**:
 
 **Standalone**: Use dev-cycle for any development work (features, bugs, refactoring, etc.)
 
-**With blueprint**:
-1. **blueprint** (Stages 1-4) creates the initial plan: `north-star.md`, `[idea]-design.md`, `[idea]-poc-plan.md`
+**With dev-design**:
+1. **dev-design** (Stages 1-4) creates the initial plan: `north-star.md`, `[name]-architecture.md`, `[name]-poc-design.md`
 2. **dev-cycle** takes over for the development loop:
-   - Pick work item from `[idea]-poc-plan.md`
+   - Pick work item from `[name]-poc-design.md`
    - Stage 1: Create overview if needed (for new issues/features)
    - Stage 2: Plan the implementation
    - Stage 3: Execute step by step

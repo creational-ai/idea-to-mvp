@@ -14,11 +14,37 @@ Stage 3 of dev-cycle: Implement one step at a time with pytest verification.
 - `docs/[name]-implementation.md` - The plan to execute
 - `docs/[name]-results.md` - Track progress here
 
-## User Notes
+## Input
 
+**First argument (required):**
+- File path to implementation plan (e.g., `docs/poc6-implementation.md`)
+- Work item name (e.g., `poc6`, `feature-x`) → Will look for `docs/[name]-implementation.md`
+
+**Second argument (optional):**
+- Step number or identifier (e.g., `3`, `step-3`, `Step 3`)
+- If provided: Execute only this specific step
+- If omitted: Execute all steps in sequence
+
+**User notes (optional):**
 ```
 {{notes}}
 ```
+
+**Examples:**
+```bash
+# Execute all steps in sequence
+/dev-execute docs/poc6-implementation.md
+
+# Execute specific step
+/dev-execute docs/poc6-implementation.md 3 --notes "Skip database migration for now"
+
+# Using work item name
+/dev-execute poc6 step-5
+```
+
+**Required files:**
+- `docs/[name]-implementation.md` - The plan to execute
+- `docs/[name]-results.md` - Will be updated with progress after each step
 
 ## Key Requirements
 
@@ -34,13 +60,23 @@ Stage 3 of dev-cycle: Implement one step at a time with pytest verification.
 
 Follow the guidance in `3-execution-guide.md`:
 
-Per step:
+**Mode 1: Execute all steps in sequence** (no step number provided)
+- Start from first incomplete step in results.md
+- Execute each step one at a time
+- Continue until all steps complete or error occurs
+
+**Mode 2: Execute specific step** (step number provided)
+- Jump to the specified step
+- Execute only that step
+- Useful for retrying failed steps or skipping ahead
+
+**Per step execution:**
 1. Write implementation code
 2. Write tests (`tests/test_[name]_*.py`)
 3. Run pytest verification
 4. Update results.md (status + lessons learned)
 
-A step is NOT complete until tests pass and results doc is updated.
+**Critical:** A step is NOT complete until tests pass and results doc is updated.
 
 ## Output
 

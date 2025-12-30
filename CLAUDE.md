@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 This repo contains two complementary Claude Code skills:
 
-1. **blueprint** - Planning phase (concept to executable plan)
+1. **dev-design** - Design phase (concept to executable plan)
 2. **dev-cycle** - Development loop (plan to working code)
 
 ## Repo Structure
@@ -21,11 +21,11 @@ idea-to-mvp/
 │   ├── dev-plan.md            # Plan implementation steps
 │   ├── dev-execute.md         # Execute step-by-step
 │   └── small-win-check.md     # Project health check
-├── blueprint/                  # Planning skill
+├── dev-design/                 # Design skill
 │   ├── SKILL.md               # Main skill definition
 │   ├── assets/templates/      # Templates (north-star, design, poc-plan)
 │   └── references/            # Stage guides (1-4)
-└── dev-cycle/                 # Development skill
+└── dev-cycle/                  # Development skill
     ├── SKILL.md               # Main skill definition
     ├── assets/templates/      # Templates (overview, implementation, results, PROJECT_STATE)
     ├── references/            # Stage guides (1-3)
@@ -46,7 +46,7 @@ idea-to-mvp/
 
 ### Sync from Deployed Skills
 
-If you made changes in `~/.claude/skills/blueprint/`, `~/.claude/skills/dev-cycle/`, or `~/.claude/commands/`:
+If you made changes in `~/.claude/skills/dev-design/`, `~/.claude/skills/dev-cycle/`, or `~/.claude/commands/`:
 
 ```bash
 ./sync-from-user.sh
@@ -68,10 +68,10 @@ git status
 
 ## File Naming Conventions
 
-**blueprint creates:**
+**dev-design creates:**
 - `north-star.md` - Vision and goals (one per project)
-- `[idea]-design.md` - Architecture (e.g., `core-design.md`)
-- `[idea]-poc-plan.md` - Work items to implement (e.g., `core-poc-plan.md`)
+- `[name]-architecture.md` - Architecture (e.g., `core-architecture.md`)
+- `[name]-poc-design.md` - Work items to implement (e.g., `core-poc-design.md`)
 
 **dev-cycle creates:**
 - `PROJECT_STATE.md` - Work item tracking
@@ -82,10 +82,10 @@ git status
 
 ## Templates
 
-**blueprint** (`blueprint/assets/templates/`):
+**dev-design** (`dev-design/assets/templates/`):
 - `north-star.md` - Stage 1 output
-- `design.md` - Stage 2 output
-- `poc-plan.md` - Stage 4 output
+- `architecture.md` - Stage 2 output
+- `poc-design.md` - Stage 4 output
 
 **dev-cycle** (`dev-cycle/assets/templates/`):
 - `overview.md` - Stage 1 output
@@ -95,8 +95,8 @@ git status
 
 ## Reference Guides
 
-**blueprint** (`blueprint/references/`):
-- `1-concept-guide.md` through `4-poc-planning-guide.md`
+**dev-design** (`dev-design/references/`):
+- `1-north-star-guide.md` through `4-poc-planning-guide.md`
 
 **dev-cycle** (`dev-cycle/references/`):
 - `1-overview-guide.md` through `3-execution-guide.md`
@@ -115,7 +115,7 @@ Commands are global and deployed by both skills to `~/.claude/commands/`
 ## Deployment
 
 Single `deploy.sh` script at root deploys everything:
-- `blueprint/` → `~/.claude/skills/blueprint/`
+- `dev-design/` → `~/.claude/skills/dev-design/`
 - `dev-cycle/` → `~/.claude/skills/dev-cycle/`
 - `commands/` → `~/.claude/commands/`
 
@@ -139,5 +139,5 @@ git push
 - References provide detailed stage guidance
 - Test slash commands after changes
 - Deploy before pushing to verify changes work
-- blueprint is pure planning (NO CODE)
+- dev-design is pure design (NO CODE)
 - dev-cycle allows code (Stage 1 is design-only, Stages 2-3 allow code)

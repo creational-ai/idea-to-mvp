@@ -16,7 +16,12 @@
       "Bash(ln:*)",
       "Bash(./deploy.sh)",
       "Bash(find:*)",
-      "Bash(ls:*)"
+      "Bash(ls:*)",
+      "Bash(./verify.sh:*)",
+      "Bash(bash:*)",
+      "Bash(grep:*)",
+      "Bash(xargs:*)",
+      "Bash(done)"
     ]
   }
 }

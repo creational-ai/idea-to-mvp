@@ -1,21 +1,22 @@
 #!/bin/bash
-# Deploy both blueprint and dev-cycle skills to ~/.claude/
+# Deploy both dev-design and dev-cycle skills to ~/.claude/
 # Usage: ./deploy.sh
 
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-BLUEPRINT_SKILL_DIR="$HOME/.claude/skills/blueprint"
+DEVDESIGN_SKILL_DIR="$HOME/.claude/skills/dev-design"
 DEVCYCLE_SKILL_DIR="$HOME/.claude/skills/dev-cycle"
 OLD_SKILL_DIR="$HOME/.claude/skills/idea-to-mvp"
+OLD_BLUEPRINT_DIR="$HOME/.claude/skills/blueprint"
 COMMANDS_DIR="$HOME/.claude/commands"
 
 echo "=============================================="
-echo "Deploying idea-to-mvp skills..."
+echo "Deploying dev-design + dev-cycle skills..."
 echo "=============================================="
 echo ""
 
-# Clean up old idea-to-mvp skill if it exists
+# Clean up old skill directories if they exist
 if [ -d "$OLD_SKILL_DIR" ]; then
     echo "--- Removing old idea-to-mvp skill ---"
     rm -rf "$OLD_SKILL_DIR"
@@ -23,24 +24,31 @@ if [ -d "$OLD_SKILL_DIR" ]; then
     echo ""
 fi
 
+if [ -d "$OLD_BLUEPRINT_DIR" ]; then
+    echo "--- Removing old blueprint skill ---"
+    rm -rf "$OLD_BLUEPRINT_DIR"
+    echo "  ✓ Removed $OLD_BLUEPRINT_DIR"
+    echo ""
+fi
+
 # Create target directories
-mkdir -p "$BLUEPRINT_SKILL_DIR"
+mkdir -p "$DEVDESIGN_SKILL_DIR"
 mkdir -p "$DEVCYCLE_SKILL_DIR"
 mkdir -p "$COMMANDS_DIR"
 
-# Deploy blueprint skill
-echo "--- Deploying blueprint skill ---"
-echo "Target: $BLUEPRINT_SKILL_DIR"
+# Deploy dev-design skill
+echo "--- Deploying dev-design skill ---"
+echo "Target: $DEVDESIGN_SKILL_DIR"
 
-cp "$SCRIPT_DIR/blueprint/SKILL.md" "$BLUEPRINT_SKILL_DIR/"
+cp "$SCRIPT_DIR/dev-design/SKILL.md" "$DEVDESIGN_SKILL_DIR/"
 echo "  ✓ Copied SKILL.md"
 
-mkdir -p "$BLUEPRINT_SKILL_DIR/assets/templates"
-cp -r "$SCRIPT_DIR/blueprint/assets/templates/"* "$BLUEPRINT_SKILL_DIR/assets/templates/"
+mkdir -p "$DEVDESIGN_SKILL_DIR/assets/templates"
+cp -r "$SCRIPT_DIR/dev-design/assets/templates/"* "$DEVDESIGN_SKILL_DIR/assets/templates/"
 echo "  ✓ Copied assets/templates/"
 
-mkdir -p "$BLUEPRINT_SKILL_DIR/references"
-cp -r "$SCRIPT_DIR/blueprint/references/"* "$BLUEPRINT_SKILL_DIR/references/"
+mkdir -p "$DEVDESIGN_SKILL_DIR/references"
+cp -r "$SCRIPT_DIR/dev-design/references/"* "$DEVDESIGN_SKILL_DIR/references/"
 echo "  ✓ Copied references/"
 
 echo ""
@@ -77,7 +85,7 @@ echo "✓ Deployment complete!"
 echo "=============================================="
 echo ""
 echo "Deployed to:"
-echo "  blueprint:  $BLUEPRINT_SKILL_DIR"
+echo "  dev-design: $DEVDESIGN_SKILL_DIR"
 echo "  dev-cycle:  $DEVCYCLE_SKILL_DIR"
 echo "  commands:   $COMMANDS_DIR"
 echo ""

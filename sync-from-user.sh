@@ -5,7 +5,7 @@
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-BLUEPRINT_SKILL_DIR="$HOME/.claude/skills/blueprint"
+DEVDESIGN_SKILL_DIR="$HOME/.claude/skills/dev-design"
 DEVCYCLE_SKILL_DIR="$HOME/.claude/skills/dev-cycle"
 COMMANDS_DIR="$HOME/.claude/commands"
 
@@ -15,26 +15,26 @@ echo "=============================================="
 echo ""
 
 # Check sources exist
-if [ ! -d "$BLUEPRINT_SKILL_DIR" ]; then
-    echo "Warning: $BLUEPRINT_SKILL_DIR does not exist"
+if [ ! -d "$DEVDESIGN_SKILL_DIR" ]; then
+    echo "Warning: $DEVDESIGN_SKILL_DIR does not exist"
 fi
 
 if [ ! -d "$DEVCYCLE_SKILL_DIR" ]; then
     echo "Warning: $DEVCYCLE_SKILL_DIR does not exist"
 fi
 
-# Sync blueprint skill
-if [ -d "$BLUEPRINT_SKILL_DIR" ]; then
-    echo "--- Syncing blueprint skill ---"
-    echo "Source: $BLUEPRINT_SKILL_DIR"
+# Sync dev-design skill
+if [ -d "$DEVDESIGN_SKILL_DIR" ]; then
+    echo "--- Syncing dev-design skill ---"
+    echo "Source: $DEVDESIGN_SKILL_DIR"
 
-    cp "$BLUEPRINT_SKILL_DIR/SKILL.md" "$SCRIPT_DIR/blueprint/"
+    cp "$DEVDESIGN_SKILL_DIR/SKILL.md" "$SCRIPT_DIR/dev-design/"
     echo "  ✓ Synced SKILL.md"
 
-    cp -r "$BLUEPRINT_SKILL_DIR/assets/templates/"* "$SCRIPT_DIR/blueprint/assets/templates/"
+    cp -r "$DEVDESIGN_SKILL_DIR/assets/templates/"* "$SCRIPT_DIR/dev-design/assets/templates/"
     echo "  ✓ Synced assets/templates/"
 
-    cp -r "$BLUEPRINT_SKILL_DIR/references/"* "$SCRIPT_DIR/blueprint/references/"
+    cp -r "$DEVDESIGN_SKILL_DIR/references/"* "$SCRIPT_DIR/dev-design/references/"
     echo "  ✓ Synced references/"
 
     echo ""

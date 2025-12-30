@@ -1,4 +1,4 @@
-# Stage 4: PoC Planning
+# Stage 4: PoC Design
 
 ## Goal
 Define what needs to be proven and in what order — with PRODUCTION-GRADE thin slices.
@@ -7,19 +7,19 @@ Define what needs to be proven and in what order — with PRODUCTION-GRADE thin 
 NO
 
 ## Input
-- Validated design doc (`[idea]-design.md`)
+- Validated architecture doc (`[name]-architecture.md`)
 
 ## Process
-1. Refine design with implementation perspective
+1. Refine architecture with implementation perspective
 2. Identify atomic things to prove (PoCs)
 3. Map dependencies between PoCs
 4. Create PoC diagram
 5. Define success criteria for each PoC
 
 ## Output
-`[idea]-poc-plan.md` using `assets/templates/poc-plan.md`
+`[name]-poc-design.md` using `assets/templates/poc-design.md`
 
-Example: `core-poc-plan.md`, `mobile-poc-plan.md`
+Example: `core-poc-design.md`, `mobile-poc-design.md`
 
 ## Verification Checklist
 - [ ] Each PoC proves one specific thing

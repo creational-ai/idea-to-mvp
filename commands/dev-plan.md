@@ -14,11 +14,35 @@ Stage 2 of dev-cycle: Break down one work item into bite-sized, production-grade
 - `~/.claude/skills/dev-cycle/assets/templates/implementation-plan.md` - Implementation template
 - `~/.claude/skills/dev-cycle/assets/templates/implementation-results.md` - Results template
 
-## User Notes
+## Input
 
+**First argument (required):**
+- PoC identifier (e.g., `PoC 6`, `poc6`) → Reads from `[name]-poc-design.md`
+- File path to overview doc (e.g., `docs/feature-x-overview.md`)
+- File path to poc-design doc (e.g., `core-poc-design.md`) with PoC identifier in notes
+
+**User notes (optional):**
 ```
 {{notes}}
 ```
+
+**Examples:**
+```bash
+# Plan a specific PoC from poc-design.md
+/dev-plan "PoC 6" --notes "Focus on error handling"
+
+# Plan from overview document
+/dev-plan docs/feature-x-overview.md
+
+# Specify PoC and poc-design file explicitly
+/dev-plan core-poc-design.md --notes "Plan PoC 6"
+```
+
+**The command will:**
+1. Read PoC definition from poc-design.md if PoC identifier provided
+2. Read overview doc if file path provided
+3. Combine with user notes
+4. Create implementation plan
 
 ## Key Requirements
 

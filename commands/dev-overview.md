@@ -13,11 +13,35 @@ Stage 1 of dev-cycle: Analyze and plan the work without writing code.
 - `~/.claude/skills/dev-cycle/references/1-overview-guide.md` - Detailed process
 - `~/.claude/skills/dev-cycle/assets/templates/overview.md` - Output template
 
-## User Notes
+## Input
 
+**First argument (optional):**
+- File path to bug report/issue/feature spec (e.g., `docs/bug-123.md`, `github-issue-456.txt`)
+- If omitted → Use user notes only for feature/bug description
+
+**User notes (required if no file, otherwise optional):**
 ```
 {{notes}}
 ```
+
+**Examples:**
+```bash
+# From bug report file
+/dev-overview docs/bug-123.md --notes "Focus on performance impact"
+
+# From GitHub issue file
+/dev-overview github-issue-456.txt
+
+# From user description only
+/dev-overview --notes "Add caching layer to reduce API calls"
+```
+
+**The command will:**
+1. Read the file if provided (bug report, issue, feature spec)
+2. Combine with user notes
+3. Analyze current architecture
+4. Create design overview
+5. Update `[name]-poc-design.md` if applicable
 
 ## Key Requirements
 
@@ -34,7 +58,7 @@ Follow the guidance in `1-overview-guide.md`:
 4. Break into self-contained work items
 5. Evaluate approaches
 6. Document decisions
-7. Update [idea]-poc-plan.md (if applicable)
+7. Update [name]-poc-design.md (if applicable)
 
 ## Output
 

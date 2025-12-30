@@ -9,9 +9,9 @@ Verify design or implementation documents are sound, logical, consistent, and fr
 **Notes** (optional): User may provide additional context after `--notes` flag
 
 Example usage:
-- `/verify-doc core-poc-plan.md`
-- `/verify-doc core-design.md docs/auth-implementation.md`
-- `/verify-doc core-design.md core-poc-plan.md --notes "Focus on Stage 4 requirements"`
+- `/verify-doc core-poc-design.md`
+- `/verify-doc core-architecture.md docs/auth-implementation.md`
+- `/verify-doc core-architecture.md core-poc-design.md --notes "Focus on Stage 4 requirements"`
 
 ## Instructions
 
