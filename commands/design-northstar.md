@@ -38,7 +38,7 @@ Follow the guidance in `1-north-star-guide.md`:
 
 ## Output
 
-Create `north-star.md` using the template.
+Create `docs/north-star.md` using the template.
 
 ## After Completion
 

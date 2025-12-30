@@ -35,8 +35,8 @@ Stage 3 of dev-design: Research competitors and validate market assumptions.
 ⛔ **NO CODE** - This is research only (market analysis, competitive analysis)
 
 **Input Required**:
-- North Star doc (`north-star.md`)
-- Architecture doc (`[name]-architecture.md`)
+- North Star doc (`docs/north-star.md`)
+- Architecture doc (`docs/[name]-architecture.md`)
 
 ## Process
 
@@ -57,7 +57,7 @@ If research already exists (from prior sessions, reference docs, or external sou
 
 ## Output
 
-Updates to `north-star.md` and `[name]-architecture.md` with market analysis.
+Updates to `docs/north-star.md` and `docs/[name]-architecture.md` with market analysis.
 
 ## After Completion
 
