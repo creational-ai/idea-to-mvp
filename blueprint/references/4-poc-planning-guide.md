@@ -7,7 +7,7 @@ Define what needs to be proven and in what order — with PRODUCTION-GRADE thin 
 NO
 
 ## Input
-- Validated design docs (copied to `docs/` folder)
+- Validated design doc (`[idea]-design.md`)
 
 ## Process
 1. Refine design with implementation perspective
@@ -17,7 +17,9 @@ NO
 5. Define success criteria for each PoC
 
 ## Output
-`docs/poc-plan.md` using `assets/templates/poc-plan.md`
+`[idea]-poc-plan.md` using `assets/templates/poc-plan.md`
+
+Example: `core-poc-plan.md`, `mobile-poc-plan.md`
 
 ## Verification Checklist
 - [ ] Each PoC proves one specific thing

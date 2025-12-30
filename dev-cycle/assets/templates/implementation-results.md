@@ -1,4 +1,4 @@
-# PoC [N] Results: [Name]
+# [Name] Results
 
 ## Summary
 | Attribute | Value |
@@ -16,7 +16,7 @@
 ---
 
 ## Success Criteria
-From `docs/poc[N]-implementation.md`:
+From `docs/[name]-implementation.md`:
 
 - [ ] [Criterion 1]
 - [ ] [Criterion 2]

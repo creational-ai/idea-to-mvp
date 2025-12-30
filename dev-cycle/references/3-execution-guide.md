@@ -1,14 +1,14 @@
-# Stage 5: PoC Execution
+# Execution Guide (Stage 3)
 
 ## Goal
-Implement the current PoC one step at a time.
+Implement the current work item one step at a time.
 
 ## Code Allowed
 YES
 
 ## ⚠️ ONE STEP AT A TIME
 
-This stage executes the implementation plan from Stage 4b:
+This stage executes the implementation plan from Stage 2 (Planning):
 - Work on Step 1, verify, then Step 2, verify, etc.
 - Each step is bite-sized (~30 min max)
 - Steps can break into sub-steps: 3a, 3b, 3c
@@ -19,13 +19,13 @@ This stage executes the implementation plan from Stage 4b:
 
 A step is NOT complete until:
 1. Implementation code exists (in appropriate module/file)
-2. Tests exist (`tests/test_poc[N]_*.py`)
-3. All tests pass (`uv run pytest tests/test_poc[N]_*.py -v`)
+2. Tests exist (`tests/test_[name]_*.py`)
+3. All tests pass (`uv run pytest tests/test_[name]_*.py -v`)
 4. Results doc updated with step status
 
 ## Input
-- Implementation plan from Stage 4b (`docs/poc[N]-implementation.md`)
-- Results tracking doc (`docs/poc[N]-results.md`)
+- Implementation plan from Stage 2 (Planning) (`docs/[name]-implementation.md`)
+- Results tracking doc (`docs/[name]-results.md`)
 - Current step to work on
 
 ## Per-Step Workflow
@@ -33,31 +33,31 @@ A step is NOT complete until:
 | Phase | Action | Output |
 |-------|--------|--------|
 | **1. Implement** | Write implementation code | Implementation files in appropriate modules |
-| **2. Write Tests** | Cover critical paths + edge cases | `tests/test_poc[N]_*.py` |
-| **3. Verify** | Run pytest | `uv run pytest tests/test_poc[N]_*.py -v` |
-| **4. Document** | Update results doc | `docs/poc[N]-results.md` (step status + lessons learned) |
+| **2. Write Tests** | Cover critical paths + edge cases | `tests/test_[name]_*.py` |
+| **3. Verify** | Run pytest | `uv run pytest tests/test_[name]_*.py -v` |
+| **4. Document** | Update results doc | `docs/[name]-results.md` (step status + lessons learned) |
 
 ## Output (per step)
 - Implementation code files — In appropriate modules/directories
-- Test files — `tests/test_poc[N]_*.py` (add tests for this step)
+- Test files — `tests/test_[name]_*.py` (add tests for this step)
 - Update results doc — Mark step complete, add test results, note issues
 
-## Output (when PoC complete)
+## Output (when work complete)
 - All implementation and test files complete
-- `docs/poc[N]-results.md` — Final status with all success criteria met
+- `docs/[name]-results.md` — Final status with all success criteria met
 
 ## Verification Checkpoints
 
 **After each step:**
 - [ ] Implementation code works as expected
-- [ ] Tests pass (`uv run pytest tests/test_poc[N]_*.py -v`)
-- [ ] `docs/poc[N]-results.md` updated with step progress and lessons learned
+- [ ] Tests pass (`uv run pytest tests/test_[name]_*.py -v`)
+- [ ] `docs/[name]-results.md` updated with step progress and lessons learned
 
-**After all steps (PoC complete):**
-- [ ] All PoC tests pass
-- [ ] `docs/poc[N]-results.md` shows all success criteria met
+**After all steps (work complete):**
+- [ ] All tests pass
+- [ ] `docs/[name]-results.md` shows all success criteria met
 - [ ] Production-grade checklist verified
-- [ ] PROJECT_STATE.md updated with PoC completion
+- [ ] PROJECT_STATE.md updated with work completion
 - [ ] `/small-win-check` (optional - run when needed for alignment verification)
 
 ## Implementation Guidelines
@@ -73,12 +73,12 @@ A step is NOT complete until:
 - Use descriptive test names
 
 ## Documentation Guidelines
-- Update `docs/poc[N]-results.md` after each step
+- Update `docs/[name]-results.md` after each step
 - Include: step status (⏳ Pending / ✅ Complete), test results, issues encountered, bug fixes
 - **Add "Lessons Learned" section** for each step documenting key insights, patterns, and gotchas
 - Keep implementation doc clean (no status updates there)
 - Document any design decisions or learnings
-- Update PROJECT_STATE.md at the END when PoC is complete
+- Update PROJECT_STATE.md at the END when work is complete
 
 ## Common Pitfalls
 - Skipping tests
@@ -89,5 +89,5 @@ A step is NOT complete until:
 - Forgetting to document what you learned from issues/bugs
 
 ## Next Stage
-→ Return to Stage 4b for next PoC (after PoC complete)
-→ Stage 6: MVP (when all PoCs complete)
+→ Return to Stage 2 for next work item (after work complete)
+→ MVP complete (when all work items complete)

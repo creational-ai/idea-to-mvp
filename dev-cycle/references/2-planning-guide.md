@@ -1,24 +1,24 @@
-# Stage 4b: PoC Implementation Planning
+# Planning Guide (Stage 2)
 
 ## Goal
-Break the NEXT PoC into bite-sized, production-grade implementation steps.
+Break the work item (PoC, feature, bug fix) into bite-sized, production-grade implementation steps.
 
 ## Code Allowed
 YES
 
-## ⚠️ ONE PoC AT A TIME
+## ⚠️ ONE WORK ITEM AT A TIME
 
 Only generate implementation plan for:
-- The next logical PoC (based on dependency graph), OR
-- The PoC you explicitly choose
+- The next logical work item (based on dependency graph), OR
+- The specific item you explicitly choose
 
 **Why one at a time?**
-- Learnings from one PoC often change subsequent PoCs
+- Learnings from one work item often change subsequent items
 - Keeps planning nimble and agile
 - Avoids wasted effort on plans that become obsolete
 
 ## Input
-- Single PoC from `docs/poc-plan.md`
+- Single work item from `[idea]-poc-plan.md` OR feature/bug to implement
 
 ## Process
 1. List all prerequisites (setup Supabase, configure AWS, API keys, etc.)
@@ -31,14 +31,14 @@ Only generate implementation plan for:
 
 Two documents are created:
 
-1. **Implementation Plan**: `docs/poc[N]-implementation.md` using `assets/templates/poc-implementation.md`
+1. **Implementation Plan**: `docs/[name]-implementation.md` using `assets/templates/implementation-plan.md`
    - Prerequisites with setup instructions
    - Step-by-step implementation guide
    - Code snippets, commands, configs
    - Verification commands
    - **NO status indicators** - keep it clean and focused on "how to implement"
 
-2. **Results Tracking**: `docs/poc[N]-results.md`
+2. **Results Tracking**: `docs/[name]-results.md`
    - Prerequisites completion status (✅ / ⏳)
    - Step-by-step progress tracking
    - Test results and counts
@@ -52,8 +52,8 @@ Two documents are created:
 - Keeps documentation clean, focused, and easy to maintain
 
 ## Verification Checklist
-- [ ] Implementation doc created (`docs/poc[N]-implementation.md`)
-- [ ] Results doc created (`docs/poc[N]-results.md`)
+- [ ] Implementation doc created (`docs/[name]-implementation.md`)
+- [ ] Results doc created (`docs/[name]-results.md`)
 - [ ] Prerequisites explicitly listed with setup instructions
 - [ ] Each step is small enough to verify independently
 - [ ] Each step has clear verification criteria (with code)
@@ -64,7 +64,7 @@ Two documents are created:
 
 ## What CODE IS Allowed
 
-Unlike Stages 1-4, implementation planning gets into specifics:
+Unlike Stage 1, implementation planning gets into specifics:
 - Concrete code snippets for each step
 - Specific function signatures
 - Exact commands to run
@@ -196,7 +196,7 @@ For each step, ensure:
 - **Breaking self-contained requirement** (add alongside don't replace; PoC must work independently without future PoCs)
 
 ## Next Stage
-→ Stage 5: PoC Execution (for this PoC)
+→ Stage 3: Execution (use 3-execution-guide.md)
 
-## After PoC Complete
-→ Return to Stage 4b for next PoC
+## After Work Complete
+→ Return to Stage 2 for next work item

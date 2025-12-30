@@ -1,16 +1,16 @@
-# PoC [N] Implementation Plan: [Name]
+# [Name] Implementation Plan
 
-> **Track Progress**: See `docs/poc[N]-results.md` for implementation status, test results, and issues.
+> **Track Progress**: See `docs/[name]-results.md` for implementation status, test results, and issues.
 
 ## Overview
 
 | Attribute | Value |
 |-----------|-------|
-| **PoC Name** | [Name] |
+| **Name** | [Name] |
 | **Proves** | [What this validates] |
 | **Production-Grade Because** | [Why this isn't a toy/mock] |
 
-> ⚠️ **Self-Contained Requirement**: This PoC must be complete and functional on its own. All existing functionality must continue working. If adding new capability could break existing code, add alongside (don't replace). See `references/stage-4b-poc-implementation.md` for details.
+> ⚠️ **Self-Contained Requirement**: This work must be complete and functional on its own. All existing functionality must continue working. If adding new capability could break existing code, add alongside (don't replace). See `references/2-planning-guide.md` for details.
 
 ---
 
@@ -67,7 +67,7 @@ From `docs/[source-doc].md`:
 │   └── [file2.py]            # [Purpose]
 ├── [existing-file.py]        # Updated
 └── tests/
-    └── test_poc[N]_[name].py # All tests
+    └── test_[name]_*.py # All tests
 ```
 
 ### Design Principles
@@ -123,7 +123,7 @@ From `docs/[source-doc].md`:
 [actual code to write]
 ```
 
-**Tests** (add to `tests/test_poc[N]_[name].py`):
+**Tests** (add to `tests/test_[name]_*.py`):
 ```python
 """Tests for [what this step does]."""
 
@@ -144,7 +144,7 @@ class Test[ClassName]:
 
 **Verification**:
 ```bash
-cd [directory] && uv run pytest tests/test_poc[N]_[name].py::Test[ClassName] -v
+cd [directory] && uv run pytest tests/test_[name]_*.py::Test[ClassName] -v
 ```
 
 **Output**: [X]/[X] tests passing
@@ -165,7 +165,7 @@ cd [directory] && uv run pytest tests/test_poc[N]_[name].py::Test[ClassName] -v
 [actual code to write]
 ```
 
-**Tests** (add to `tests/test_poc[N]_[name].py`):
+**Tests** (add to `tests/test_[name]_*.py`):
 ```python
 class Test[ClassName]:
     """Tests for [component]."""
@@ -177,7 +177,7 @@ class Test[ClassName]:
 
 **Verification**:
 ```bash
-cd [directory] && uv run pytest tests/test_poc[N]_[name].py::Test[ClassName] -v
+cd [directory] && uv run pytest tests/test_[name]_*.py::Test[ClassName] -v
 ```
 
 **Output**: [X]/[X] tests passing
@@ -193,7 +193,7 @@ cd [directory] && uv run pytest tests/test_poc[N]_[name].py::Test[ClassName] -v
 - [ ] [Integration task 2]
 - [ ] [Final validation]
 
-**Tests** (add to `tests/test_poc[N]_[name].py`):
+**Tests** (add to `tests/test_[name]_*.py`):
 ```python
 class Test[Integration]:
     """Integration tests for [PoC name]."""
@@ -205,11 +205,11 @@ class Test[Integration]:
 
 **Verification**:
 ```bash
-# Run all PoC tests
-cd [directory] && uv run pytest tests/test_poc[N]_[name].py -v
+# Run all tests for this work
+cd [directory] && uv run pytest tests/test_[name]_*.py -v
 
 # Verify existing tests still pass
-cd [directory] && uv run pytest tests/ -v --ignore=tests/test_poc[N]_[name].py
+cd [directory] && uv run pytest tests/ -v --ignore=tests/test_[name]_*.py
 ```
 
 **Output**: All tests passing ([total-new] new + [total-existing] existing = [total] tests)
@@ -218,17 +218,16 @@ cd [directory] && uv run pytest tests/ -v --ignore=tests/test_poc[N]_[name].py
 
 ## Test Summary
 
-### After PoC [N] Complete
+### After Implementation Complete
 
 | Test File | Tests | What It Covers |
 |-----------|-------|----------------|
-| `tests/test_poc1_*.py` | X | [Description] |
-| `tests/test_poc2_*.py` | X | [Description] |
-| `tests/test_poc[N]_*.py` | X | [This PoC] |
+| `tests/test_[existing]_*.py` | X | [Description] |
+| `tests/test_[name]_*.py` | X | [This work] |
 
 **Total Expected: [X] tests**
 
-**Test Breakdown (PoC [N])**:
+**Test Breakdown ([Name])**:
 - Test[Class1]: X tests
 - Test[Class2]: X tests
 - Test[Integration]: X tests
@@ -257,10 +256,10 @@ Before marking PoC complete, verify:
 
 ```bash
 # 1. All new tests pass
-cd [directory] && uv run pytest tests/test_poc[N]_[name].py -v
+cd [directory] && uv run pytest tests/test_[name]_*.py -v
 
 # 2. All existing tests still pass
-cd [directory] && uv run pytest tests/ -v --ignore=tests/test_poc[N]_[name].py
+cd [directory] && uv run pytest tests/ -v --ignore=tests/test_[name]_*.py
 
 # 3. [Specific functionality works]
 [command to demonstrate]
@@ -282,7 +281,7 @@ print('✓ All imports successful')
 |------|--------|--------|
 | `[path/to/new-file.py]` | Create | Pending: [purpose] |
 | `[path/to/existing-file.py]` | Modify | Pending: [what changes] |
-| `tests/test_poc[N]_[name].py` | Create | Pending: all tests |
+| `tests/test_[name]_*.py` | Create | Pending: all tests |
 | `pyproject.toml` | Modify | Pending: [dependencies] |
 
 ---
@@ -325,9 +324,9 @@ _(Optional - only if this PoC introduces new error codes)_
 
 ---
 
-## Next Steps After PoC [N]
+## Next Steps After Completion
 
 1. ✅ Verify all tests pass ([total] total)
 2. ✅ Verify [specific success criteria]
 3. ✅ Document success in PROJECT_STATE.md
-4. → Proceed to PoC [N+1]: [Next PoC name]
+4. → Proceed to next work item: [Next item]

@@ -2,69 +2,109 @@
 
 ![Claude Skill](https://img.shields.io/badge/Claude-Skill-blue)
 
-A structured workflow for taking ideas from concept to working product through 6 stages.
+A structured workflow for taking ideas from concept to working product through two complementary skills:
 
-## Installation
+1. **blueprint** - Planning phase (0 to 1)
+2. **dev-cycle** - Development loop (1 to N)
+
+## Quick Start
 
 ```bash
 git clone git@github-creational:creational-ai/idea-to-mvp.git
 cd idea-to-mvp
+
+# Deploy both skills and all commands
 ./deploy.sh
 ```
 
-This deploys to:
-- `~/.claude/skills/idea-to-mvp/` - Skill files
-- `~/.claude/commands/` - Global slash commands
+## Skills Overview
 
-## Stage Workflow
+### blueprint - Planning Phase
 
-| Stage | Code Allowed | Purpose |
-|-------|--------------|---------|
-| 1. Concept | NO | Refine idea into North Star doc |
-| 2. Design | NO | Technical architecture |
-| 3. Research | NO | Market validation |
-| 4. PoC Planning | NO | Define what to prove and in what order |
-| 4b. PoC Implementation | YES | Break PoC into bite-sized steps |
-| 5. PoC Execution | YES | Implement one step at a time |
-| 6. MVP | YES | Combine proven PoCs |
+Creates the foundation before any code is written.
+
+**Stages**:
+1. Concept - Refine idea into North Star doc
+2. Design - Technical architecture
+3. Research - Market validation
+4. PoC Planning - Define work items and dependencies
+
+**Output**: `north-star.md`, `[idea]-design.md`, `[idea]-poc-plan.md`
+
+**Deploy to**: `~/.claude/skills/blueprint/`
+
+### dev-cycle - Development Loop
+
+Implements work items through a repeating 3-stage cycle.
+
+**Stages**:
+1. Overview - Analyze features/bugs (design only)
+2. Implementation Plan - Break into steps with code snippets
+3. Execution - Implement with tests
+
+**Commands**:
+- `/dev-overview` - Create high-level design
+- `/dev-plan` - Plan implementation steps
+- `/dev-execute` - Execute step-by-step
+- `/small-win-check` - Health check after work completion
+
+**Deploy to**: `~/.claude/skills/dev-cycle/`
+
+## Workflow
+
+```
+1. Use blueprint to create your plan
+   → Outputs: north-star.md, core-design.md, core-poc-plan.md
+
+2. Use dev-cycle to execute the plan
+   → /dev-plan: Plan first work item
+   → /dev-execute: Implement it
+   → Repeat for each work item
+
+3. When new issues emerge
+   → /dev-overview: Analyze and add to plan
+   → Continue the cycle
+```
 
 ## Key Principles
 
-- **Stages 1-4 are NO-CODE zones** - Focus on thinking, not implementation
-- **One PoC at a time** - Learnings often change subsequent plans
-- **One step at a time** - Verify after each implementation step
-- **Production-grade PoCs** - Real integrations, not mocks
-
-## Commands
-
-- `/small-win-check` - Run after completing PoC milestones to assess alignment with North Star vision
-- `/verify-doc <path>` - Verify a design or implementation document is sound, logical, and free of surprises
+- **blueprint is NO-CODE** - Pure planning and design
+- **dev-cycle allows code** - Stage 1 is design-only, Stages 2-3 allow code
+- **One work item at a time** - Plan and execute incrementally
+- **Production-grade quality** - OOP, Pydantic, type hints, tests required
+- **Self-contained work** - Each item works independently
 
 ## File Structure
 
 ```
-~/.claude/skills/idea-to-mvp/
-├── SKILL.md                 # Main skill definition
-├── assets/templates/        # Document templates
-│   ├── north-star.md
-│   ├── design.md
-│   ├── poc-plan.md
-│   ├── poc-implementation.md
-│   ├── poc-results.md
-│   ├── step-results.md
-│   └── PROJECT_STATE.md
-└── references/              # Stage reference docs
-    ├── stage-1-concept.md
-    ├── stage-2-design.md
-    ├── stage-3-research.md
-    ├── stage-4-poc-planning.md
-    ├── stage-4b-poc-implementation.md
-    ├── stage-5-poc-execution.md
-    └── stage-6-mvp.md
+idea-to-mvp/                    # Project repo
+├── deploy.sh                   # Deploy both skills and commands
+├── sync-from-user.sh           # Sync changes from deployed skills
+├── commands/                   # Global commands (used by both skills)
+│   ├── verify-doc.md
+│   ├── dev-overview.md
+│   ├── dev-plan.md
+│   ├── dev-execute.md
+│   └── small-win-check.md
+├── blueprint/                  # Planning skill
+│   ├── SKILL.md
+│   ├── assets/templates/
+│   └── references/
+└── dev-cycle/                  # Development skill
+    ├── SKILL.md
+    ├── assets/templates/
+    └── references/
 
-~/.claude/commands/          # Global slash commands
-├── small-win-check.md
-└── verify-doc.md
+~/.claude/skills/               # Deployed skills
+├── blueprint/
+└── dev-cycle/
+
+~/.claude/commands/             # Global commands
+├── verify-doc.md
+├── dev-overview.md
+├── dev-plan.md
+├── dev-execute.md
+└── small-win-check.md
 ```
 
 ## License

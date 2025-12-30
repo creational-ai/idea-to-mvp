@@ -1,51 +1,83 @@
 #!/bin/bash
-# Deploy idea-to-mvp skill to ~/.claude/skills/
+# Deploy both blueprint and dev-cycle skills to ~/.claude/
 # Usage: ./deploy.sh
 
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SKILL_DIR="$HOME/.claude/skills/idea-to-mvp"
+BLUEPRINT_SKILL_DIR="$HOME/.claude/skills/blueprint"
+DEVCYCLE_SKILL_DIR="$HOME/.claude/skills/dev-cycle"
+OLD_SKILL_DIR="$HOME/.claude/skills/idea-to-mvp"
 COMMANDS_DIR="$HOME/.claude/commands"
 
-echo "Deploying idea-to-mvp skill..."
-echo "Source: $SCRIPT_DIR"
-echo "Target: $SKILL_DIR"
+echo "=============================================="
+echo "Deploying idea-to-mvp skills..."
+echo "=============================================="
 echo ""
 
+# Clean up old idea-to-mvp skill if it exists
+if [ -d "$OLD_SKILL_DIR" ]; then
+    echo "--- Removing old idea-to-mvp skill ---"
+    rm -rf "$OLD_SKILL_DIR"
+    echo "  ✓ Removed $OLD_SKILL_DIR"
+    echo ""
+fi
+
 # Create target directories
-mkdir -p "$SKILL_DIR"
+mkdir -p "$BLUEPRINT_SKILL_DIR"
+mkdir -p "$DEVCYCLE_SKILL_DIR"
 mkdir -p "$COMMANDS_DIR"
 
-# Copy skill files
-echo "Copying SKILL.md..."
-cp "$SCRIPT_DIR/SKILL.md" "$SKILL_DIR/"
+# Deploy blueprint skill
+echo "--- Deploying blueprint skill ---"
+echo "Target: $BLUEPRINT_SKILL_DIR"
 
-echo "Copying assets/templates/..."
-mkdir -p "$SKILL_DIR/assets/templates"
-cp -r "$SCRIPT_DIR/assets/templates/"* "$SKILL_DIR/assets/templates/"
+cp "$SCRIPT_DIR/blueprint/SKILL.md" "$BLUEPRINT_SKILL_DIR/"
+echo "  ✓ Copied SKILL.md"
 
-echo "Copying references/..."
-mkdir -p "$SKILL_DIR/references"
-cp -r "$SCRIPT_DIR/references/"* "$SKILL_DIR/references/"
+mkdir -p "$BLUEPRINT_SKILL_DIR/assets/templates"
+cp -r "$SCRIPT_DIR/blueprint/assets/templates/"* "$BLUEPRINT_SKILL_DIR/assets/templates/"
+echo "  ✓ Copied assets/templates/"
 
-# Copy commands to global commands folder
-echo "Copying commands to $COMMANDS_DIR..."
+mkdir -p "$BLUEPRINT_SKILL_DIR/references"
+cp -r "$SCRIPT_DIR/blueprint/references/"* "$BLUEPRINT_SKILL_DIR/references/"
+echo "  ✓ Copied references/"
+
+echo ""
+
+# Deploy dev-cycle skill
+echo "--- Deploying dev-cycle skill ---"
+echo "Target: $DEVCYCLE_SKILL_DIR"
+
+cp "$SCRIPT_DIR/dev-cycle/SKILL.md" "$DEVCYCLE_SKILL_DIR/"
+echo "  ✓ Copied SKILL.md"
+
+mkdir -p "$DEVCYCLE_SKILL_DIR/assets/templates"
+cp -r "$SCRIPT_DIR/dev-cycle/assets/templates/"* "$DEVCYCLE_SKILL_DIR/assets/templates/"
+echo "  ✓ Copied assets/templates/"
+
+mkdir -p "$DEVCYCLE_SKILL_DIR/references"
+cp -r "$SCRIPT_DIR/dev-cycle/references/"* "$DEVCYCLE_SKILL_DIR/references/"
+echo "  ✓ Copied references/"
+
+echo ""
+
+# Deploy global commands
+echo "--- Deploying global commands ---"
+echo "Target: $COMMANDS_DIR"
+
 if [ -d "$SCRIPT_DIR/commands" ]; then
     cp -r "$SCRIPT_DIR/commands/"* "$COMMANDS_DIR/"
+    echo "  ✓ Copied all commands"
 fi
 
 echo ""
-echo "Done! Deployed to:"
-echo "  Skill: $SKILL_DIR"
-echo "  Commands: $COMMANDS_DIR"
+echo "=============================================="
+echo "✓ Deployment complete!"
+echo "=============================================="
 echo ""
-echo "Final structure:"
+echo "Deployed to:"
+echo "  blueprint:  $BLUEPRINT_SKILL_DIR"
+echo "  dev-cycle:  $DEVCYCLE_SKILL_DIR"
+echo "  commands:   $COMMANDS_DIR"
 echo ""
-tree "$HOME/.claude/skills" "$COMMANDS_DIR" 2>/dev/null || {
-    echo "~/.claude/skills/"
-    find "$HOME/.claude/skills" -print | sed 's|'"$HOME/.claude/skills"'|  |' | sort
-    echo ""
-    echo "~/.claude/commands/"
-    find "$COMMANDS_DIR" -type f -name "*.md" | sed 's|'"$COMMANDS_DIR/"'|  |'
-}

@@ -1,7 +1,7 @@
-# Stage 4c: Feature/Issue Overview
+# Overview Guide (Stage 1)
 
 ## Goal
-Analyze new features or issues that emerge during implementation and plan how to address them through new PoCs.
+Analyze features, bugs, issues, or milestones and plan how to address them through structured implementation.
 
 ## Code Allowed
 NO
@@ -16,9 +16,9 @@ This stage is **user-initiated**:
 **Important**: This is NOT automatic. Claude should only create an overview when explicitly asked by the user.
 
 ## Input
-- Understanding of current architecture (from implemented PoCs)
+- Understanding of current architecture (from implemented work)
 - New feature or issue identified
-- Existing `docs/poc-plan.md`
+- Existing `[idea]-poc-plan.md` (if applicable)
 
 ## Process
 
@@ -166,30 +166,30 @@ Reason: Simpler for our use case, easier to optimize
    - Prevents partial implementation
 ```
 
-### 7. Update PoC Plan
+### 7. Update Plan
 
 **Final critical step:**
-- Add new PoCs to `docs/poc-plan.md`
-- **DO NOT renumber existing PoCs** - just add new sequential numbers (e.g., if last PoC is #5, new PoCs are #6, #7, #8)
-- Update dependency graph to show where new PoCs fit
+- Add new work items to `[idea]-poc-plan.md`
+- **DO NOT renumber existing items** - just add new sequential numbers (e.g., if last item is #5, new items are #6, #7, #8)
+- Update dependency graph to show where new items fit
 - Verify dependencies still make sense
 
 ## Output
 
 Two documents:
 
-1. **Overview**: `docs/[feature-name]-overview.md` using `assets/templates/feature-overview.md`
+1. **Overview**: `docs/[name]-overview.md` using `assets/templates/overview.md`
    - Executive summary
    - Current vs target architecture
    - What needs to change
-   - PoC breakdown
+   - Work item breakdown
    - Implementation approaches
    - Risks and mitigations
    - Design decisions
 
-2. **Updated Plan**: `docs/poc-plan.md`
-   - Incorporate new PoCs
-   - Update PoC numbers if needed
+2. **Updated Plan**: `[idea]-poc-plan.md`
+   - Incorporate new work items
+   - Add new sequential numbers
    - Maintain dependency graph
 
 ## Verification Checklist
@@ -204,16 +204,16 @@ Two documents:
 - [ ] Recommended approach selected with rationale
 - [ ] Risks identified with mitigations
 - [ ] Design decisions documented
-- [ ] `docs/poc-plan.md` updated with new PoCs
+- [ ] `[idea]-poc-plan.md` updated with new work items
 
 ## Common Pitfalls
 
-- **Forgetting self-contained requirement**: Each PoC must work independently
-- **Breaking changes in PoCs**: Use "add alongside" strategy, not "replace"
-- **Vague PoC definitions**: Be specific about what each PoC proves
+- **Forgetting self-contained requirement**: Each work item must work independently
+- **Breaking changes**: Use "add alongside" strategy, not "replace"
+- **Vague definitions**: Be specific about what each item proves
 - **Missing dependencies**: Ensure prerequisites are clear
-- **Skipping poc-plan.md update**: Must update plan with new PoCs
+- **Skipping plan update**: Must update plan with new work items
 
 ## Next Stage
 
-→ Return to Stage 4b: PoC Implementation Planning for first injected PoC
+→ Stage 2: Implementation Planning (use 2-planning-guide.md)
