@@ -1,16 +1,16 @@
 # Small Win Check
 
-After completing a PoC milestone or taking a break, perform a project health check.
+Perform a project health check to verify alignment with north star vision.
 
 ## Files to Review
 
-Scan the project for these artifacts (names may vary by project):
+Scan the project for these artifacts (names may vary):
 
-1. **North Star** - `docs/*north-star*.md` or `docs/*vision*.md` - Vision, milestones, success metrics
-2. **PoC Plan** - `docs/*poc-plan*.md` or `docs/*poc*.md` - PoC definitions and success criteria
+1. **North Star** - `docs/*north-star*.md` - Vision, milestones, success metrics
+2. **PoC Plan** - `docs/*poc-plan*.md` - PoC definitions and success criteria
 3. **Design** - `docs/*design*.md` - Architecture and end goals
 4. **Project State** - `PROJECT_STATE.md` - Current status tracking
-5. **PoC Results** - `docs/poc*-results.md` or `docs/*-step*-results.md` - Completed work
+5. **PoC Results** - `docs/poc*-results.md` - Completed work
 
 If files aren't found, ask the user to identify the relevant documents.
 
@@ -22,8 +22,9 @@ If files aren't found, ask the user to identify the relevant documents.
 - Are we on track for current milestone?
 
 ### 2. Production Integration
-- How will completed PoCs be used by downstream components?
 - Are interfaces production-ready or still experimental?
+- Are we using real integrations (not mocks)?
+- Would this scale?
 
 ### 3. Gap Analysis
 - Are there missing tests or edge cases?
@@ -35,23 +36,17 @@ If files aren't found, ask the user to identify the relevant documents.
 - Are we adding complexity beyond what's needed?
 
 ### 5. Test Coverage
-- Run tests to verify all pass (e.g., `uv run pytest tests/ -v` or project-specific command)
+- Run tests to verify all pass (e.g., `uv run pytest tests/ -v`)
 - Check test counts match expected totals
 
 ## Process
 
-### Step 1: Analyze and Assess
+### Step 1: Analyze
 Review all files above and assess against the 5 criteria.
 
 ### Step 2: Update PROJECT_STATE.md
 **Before generating the report**, update `PROJECT_STATE.md` with findings:
 
-1. Add a new entry under "Health Checks" or "Small Win Checks" section
-2. Include date, summary of findings, and key recommendations
-3. Update "Current Status" if alignment issues or gaps were found
-4. Document any decisions made based on the check
-
-**Example update:**
 ```markdown
 ## Health Checks
 
@@ -69,30 +64,41 @@ Review all files above and assess against the 5 criteria.
 
 ### Step 3: Generate Final Report
 
-After updating PROJECT_STATE.md, provide a structured report:
+After updating PROJECT_STATE.md, provide this report:
 
-```
+```markdown
 ## Small Win Check Report
 
-**Date**: [date]
-**Project**: [project name]
-**Current Stage**: [stage from idea-to-mvp workflow]
+**Date**: [Date]
+**Current Stage**: [Stage]
+**Current PoC**: [PoC name]
 
-### Status Summary
-[What's complete, what's in progress]
+### ✅ Wins
+- [What's going well]
+- [Progress made]
 
-### Milestone Progress
-[Progress toward North Star milestones]
+### ⚠️ Concerns
+- [Potential issues]
+- [Drift detected]
 
-### Alignment Assessment
-[On track / Minor concerns / Major concerns]
-[Details]
+### 🔍 Gaps
+- [Missing tests]
+- [Undocumented decisions]
 
-### Identified Gaps
-1. [Gap - Priority: High/Medium/Low]
-2. [Gap - Priority: High/Medium/Low]
+### 📋 Recommendations
+1. [Action item]
+2. [Action item]
 
-### Recommendations
-1. [Next action]
-2. [Following action]
+### 🎯 North Star Check
+[Still aligned? / Drifting? / Need to revisit?]
 ```
+
+## When to Run
+
+| Situation | Frequency |
+|-----------|-----------|
+| Active development | Every 2-3 steps |
+| End of session | Always |
+| Feeling uncertain | Immediately |
+| After major decision | Always |
+| Completing a PoC | Always |
