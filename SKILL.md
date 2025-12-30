@@ -391,9 +391,9 @@ The `/small-win-check` skill is **optional** and can be run when you need to ver
 - When you want to verify alignment with north star
 
 **Reads**:
-- `docs/north-star.md`
-- `docs/poc-plan.md`
-- `docs/design.md`
+- `docs/*north-star*.md`
+- `docs/*poc-plan*.md`
+- `docs/*design*.md`
 - `docs/poc*-results.md`
 - `PROJECT_STATE.md`
 

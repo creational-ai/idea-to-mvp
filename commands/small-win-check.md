@@ -6,6 +6,8 @@ Perform a project health check to verify alignment with north star vision.
 
 Scan the project for these artifacts (names may vary):
 
+Use Glob and Grep tools to search for these files. If files don't exist or aren't in expected locations, note their absence in the report.
+
 1. **North Star** - `docs/*north-star*.md` - Vision, milestones, success metrics
 2. **PoC Plan** - `docs/*poc-plan*.md` - PoC definitions and success criteria
 3. **Design** - `docs/*design*.md` - Architecture and end goals
@@ -34,7 +36,8 @@ Scan the project for these artifacts (names may vary):
 - Are we adding complexity beyond what's needed?
 
 ### 5. Test Coverage
-- Run tests to verify all pass (e.g., `uv run pytest tests/ -v`)
+- Automatically run tests to verify all pass (e.g., `uv run pytest tests/ -v`)
+- If pytest is not available or no tests exist, document this in the report
 - Check test counts match expected totals
 
 ## Process
@@ -43,7 +46,7 @@ Scan the project for these artifacts (names may vary):
 Review all files above and assess against the 5 criteria.
 
 ### Step 2: Update PROJECT_STATE.md
-**Before generating the report**, update `PROJECT_STATE.md` with findings:
+**Before generating the report**, append the following to the Health Checks section in `PROJECT_STATE.md` (create the section if it doesn't exist):
 
 ```markdown
 ## Health Checks

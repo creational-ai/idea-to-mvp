@@ -85,6 +85,21 @@
 
 ---
 
+## Health Checks
+
+### [Date] - Small Win Check
+**Status**: ✅ On Track / ⚠️ Minor Concerns / ❌ Needs Attention
+
+**Findings**:
+- [Summary of alignment, gaps, concerns]
+
+**Actions Taken**:
+- [Any immediate actions or decisions]
+
+**Next**: [What to focus on next]
+
+---
+
 ## What's Next
 
 1. [Immediate next action - specific step]
