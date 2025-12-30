@@ -404,6 +404,9 @@ The `/small-win-check` skill is **optional** and can be run when you need to ver
 4. Scope guard (drift from original intent)
 5. Test coverage verification
 
-**Output**: Structured report with status, progress, gaps, recommendations
+**Process**:
+1. Analyze all documents against assessment criteria
+2. Update `PROJECT_STATE.md` with findings
+3. Generate structured report with status, progress, gaps, recommendations
 
 **Note**: Not required for every PoC - use when beneficial for direction validation.
