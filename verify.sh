@@ -173,7 +173,7 @@ if [ -d "$COMMANDS_DIR" ]; then
     done
 
     # Check utility commands
-    for cmd in verify-doc.md small-win-check.md; do
+    for cmd in verify-doc.md small-win-check.md dev-lessons.md; do
         if [ -f "$COMMANDS_DIR/$cmd" ]; then
             pass "Command $cmd exists"
         else
