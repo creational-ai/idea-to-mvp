@@ -29,31 +29,19 @@ Only generate implementation plan for:
 
 ## Output
 
-Two documents are created:
+One document is created:
 
-1. **Implementation Plan**: `docs/[name]-implementation.md` using `assets/templates/implementation-plan.md`
-   - Prerequisites with setup instructions
-   - Step-by-step implementation guide
-   - Code snippets, commands, configs
-   - Verification commands
-   - **NO status indicators** - keep it clean and focused on "how to implement"
+**Implementation Plan**: `docs/[name]-implementation.md` using `assets/templates/implementation-plan.md`
+- Prerequisites with setup instructions
+- Step-by-step implementation guide
+- Code snippets, commands, configs
+- Verification commands
+- **NO status indicators** - keep it clean and focused on "how to implement"
 
-2. **Results Tracking**: `docs/[name]-results.md`
-   - Prerequisites completion status (✅ / ⏳)
-   - Step-by-step progress tracking
-   - Test results and counts
-   - Issues encountered
-   - Bug fixes
-   - Files created/modified checklist
-
-**Why two documents?**
-- Implementation doc = Evergreen guide (pure "how to do it")
-- Results doc = Live progress tracking (specific to this execution)
-- Keeps documentation clean, focused, and easy to maintain
+**Note**: The results tracking document (`docs/[name]-results.md`) will be created later during Stage 3 (Execution) when `/dev-execute` is run.
 
 ## Verification Checklist
 - [ ] Implementation doc created (`docs/[name]-implementation.md`)
-- [ ] Results doc created (`docs/[name]-results.md`)
 - [ ] Prerequisites explicitly listed with setup instructions
 - [ ] Each step is small enough to verify independently
 - [ ] Each step has clear verification criteria (with code)

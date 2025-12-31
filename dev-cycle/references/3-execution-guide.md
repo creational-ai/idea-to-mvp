@@ -28,6 +28,8 @@ A step is NOT complete until:
 - Results tracking doc (`docs/[name]-results.md`)
 - Current step to work on
 
+**Before starting**: If `docs/[name]-results.md` doesn't exist yet, create it using `assets/templates/implementation-results.md` template. Fill in the Summary, Goal, Success Criteria (from implementation.md), and Prerequisites sections. Leave Implementation Progress steps as "Pending".
+
 ## Per-Step Workflow
 
 | Phase | Action | Output |

@@ -12,7 +12,6 @@ Stage 2 of dev-cycle: Break down one work item into bite-sized, production-grade
 - `~/.claude/skills/dev-cycle/SKILL.md` - See "Stage 2: Implementation Plan" section
 - `~/.claude/skills/dev-cycle/references/2-planning-guide.md` - Detailed process
 - `~/.claude/skills/dev-cycle/assets/templates/implementation-plan.md` - Implementation template
-- `~/.claude/skills/dev-cycle/assets/templates/implementation-results.md` - Results template
 
 ## Input
 
@@ -66,9 +65,8 @@ Follow the guidance in `2-planning-guide.md`:
 
 ## Output
 
-Create two documents:
+Create one document:
 - `docs/[name]-implementation.md` - Evergreen "how to" guide (NO status)
-- `docs/[name]-results.md` - Live progress tracking
 
 ## After Completion
 

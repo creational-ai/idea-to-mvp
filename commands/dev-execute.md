@@ -44,7 +44,7 @@ Stage 3 of dev-cycle: Implement one step at a time with pytest verification.
 
 **Required files:**
 - `docs/[name]-implementation.md` - The plan to execute
-- `docs/[name]-results.md` - Will be updated with progress after each step
+- `docs/[name]-results.md` - Will be created if doesn't exist, then updated with progress after each step
 
 ## Key Requirements
 
@@ -59,6 +59,8 @@ Stage 3 of dev-cycle: Implement one step at a time with pytest verification.
 ## Process
 
 Follow the guidance in `3-execution-guide.md`:
+
+**First time setup**: If `docs/[name]-results.md` doesn't exist, create it using the template (`assets/templates/implementation-results.md`). Fill in Summary, Goal, Success Criteria (from implementation.md), and Prerequisites. Mark all steps as "Pending".
 
 **Mode 1: Execute all steps in sequence** (no step number provided)
 - Start from first incomplete step in results.md

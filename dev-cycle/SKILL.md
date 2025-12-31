@@ -17,8 +17,8 @@ This skill guides you through a complete development cycle:
 | Stage | Code? | Guide | Template | Output |
 |-------|-------|-------|----------|--------|
 | 1. Overview | ❌ NO | `references/1-overview-guide.md` | `assets/templates/overview.md` | `docs/[name]-overview.md` |
-| 2. Planning | ✅ YES | `references/2-planning-guide.md` | `assets/templates/implementation-plan.md` | `docs/[name]-implementation.md`<br>`docs/[name]-results.md` |
-| 3. Execution | ✅ YES | `references/3-execution-guide.md` | N/A (track in results.md) | Implementation files<br>Test files<br>Updated results.md |
+| 2. Planning | ✅ YES | `references/2-planning-guide.md` | `assets/templates/implementation-plan.md` | `docs/[name]-implementation.md` |
+| 3. Execution | ✅ YES | `references/3-execution-guide.md` | `assets/templates/implementation-results.md` | `docs/[name]-results.md`<br>Implementation files<br>Test files |
 
 ## Optional Commands
 
@@ -173,28 +173,18 @@ See `references/2-planning-guide.md` for detailed guidance on:
 
 Create using templates:
 
-**File 1**: `docs/[name]-implementation.md` (from `assets/templates/implementation-plan.md`)
+**Output**: `docs/[name]-implementation.md` (from `assets/templates/implementation-plan.md`)
 - Prerequisites with setup instructions
 - Step-by-step implementation guide
 - Code snippets, commands, configs
 - Verification commands
 - **NO status indicators** (evergreen guide)
 
-**File 2**: `docs/[name]-results.md` (from `assets/templates/implementation-results.md`)
-- Prerequisites completion status
-- Step-by-step progress tracking
-- Test results and counts
-- Issues encountered
-- Lessons learned
-
-**Why two documents?**
-- Implementation doc = Evergreen guide (pure "how to do it")
-- Results doc = Live tracking (specific to this execution)
+**Note**: The results tracking document (`docs/[name]-results.md`) will be created later during Stage 3 (Execution).
 
 ### Stage 2 Complete Checklist
 
 - [ ] Implementation doc created (`docs/[name]-implementation.md`)
-- [ ] Results doc created (`docs/[name]-results.md`)
 - [ ] Prerequisites explicitly listed with setup instructions
 - [ ] Each step is small (~30 min) and independently verifiable
 - [ ] Each step has clear verification criteria with commands
