@@ -5,7 +5,7 @@
 |-----------|-------|
 | **Status** | ✅ Complete |
 | **Started** | January 3, 2026 |
-| **Completed** | January 3, 2026 |
+| **Completed** | 2026-01-26T20:03:36-0800 |
 | **Proves** | 5-stage workflow with organic milestone growth works end-to-end |
 
 ---
@@ -339,4 +339,39 @@ ls -la ~/.claude/skills/dev-design/references/
 **Result**: ✅ Deploy script tested and verified successfully
 
 ---
+
+## Lessons Learned
+
+- **Atomic rename-and-update operations** - When renaming a file and updating its content, do both in the same step to prevent inconsistent intermediate states where cross-references point to non-existent files.
+
+- **Deploy script requires manual cleanup for renames** - The deploy script copies new files but does not remove old files with different names. When renaming files (e.g., `4-poc-design-guide.md` to `5-poc-design-guide.md`), manually delete the old file from the deployment target.
+
+- **Environment column clarifies tool handoff** - Adding an "Environment" column to the stage overview table (Claude Desktop vs Claude Code) makes it immediately clear when users should switch tools, reducing confusion about where to run each stage.
+
+---
+
+## Diagram
+
+```
+┌─────────────────────────────┐
+│   Add Milestone Stage       │
+│        WORKFLOW             │
+│       ✅ Complete           │
+│                             │
+│ New Stage                   │
+│   • Stage 4: Milestone      │
+│   • Organic growth          │
+│   • Clear/unclear paths     │
+│                             │
+│ Artifacts Created           │
+│   • milestones.md template  │
+│   • milestone-design guide  │
+│   • design-milestones cmd   │
+│                             │
+│ Architecture                │
+│   • 5-stage workflow        │
+│   • Environment split       │
+│   • Cross-refs updated      │
+└─────────────────────────────┘
+```
 
